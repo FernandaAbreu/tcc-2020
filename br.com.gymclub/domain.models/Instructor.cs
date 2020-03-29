@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace domain.models
 {
     public class Instructor
@@ -14,5 +16,6 @@ namespace domain.models
         public DateTime UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public User User { get; set; }
+        public IEnumerable<ActivityTypeInstructor> activityTypeInstructors { get; set; }
     }
 }

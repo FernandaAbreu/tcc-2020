@@ -12,6 +12,7 @@ namespace domain.models
         public DateTime? DeletedAt { get; set; }
         public IEnumerable<User> users { get; set; }
         public IEnumerable<City> cities { get; set; }
+        public IEnumerable<Client> clients { get; set; }
     }
 
 

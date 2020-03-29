@@ -17,7 +17,7 @@ namespace EntityConfiguration
 
             builder.Property(p => p.Name)
                 .HasColumnName("name")
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(p => p.CreatedAt)

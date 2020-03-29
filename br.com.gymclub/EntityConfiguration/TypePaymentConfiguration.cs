@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityConfiguration
 {
-    public class UserTypeConfiguration : IEntityTypeConfiguration<UserType>
+    public class TypePaymentConfiguration : IEntityTypeConfiguration<TypePayment>
     {
-        public void Configure(EntityTypeBuilder<UserType> builder)
+        public void Configure(EntityTypeBuilder<TypePayment> builder)
         {
-            builder.ToTable("user_type");
+            builder.ToTable("type_payment");
 
             builder.Property(p => p.Id)
                 .HasColumnName("id")
@@ -17,7 +17,7 @@ namespace EntityConfiguration
 
             builder.Property(p => p.Name)
                 .HasColumnName("name")
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(p => p.CreatedAt)
@@ -38,13 +38,7 @@ namespace EntityConfiguration
             builder
                 .HasKey(p => p.Id);
 
-            builder
-                .HasData(
-                    new UserType { Id = 1, Name = "Admin" },
-                    new UserType { Id = 2, Name = "Recepcionista" },
-                    new UserType { Id = 3, Name = "Instrutor" },
-                    new UserType { Id = 4, Name = "Fisioterapeuta" }
-                );
+            
         }
     }
 }

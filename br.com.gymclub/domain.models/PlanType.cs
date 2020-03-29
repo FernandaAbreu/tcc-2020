@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace domain.models
 {
@@ -10,6 +11,7 @@ namespace domain.models
         public DateTime UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public IEnumerable<Payment> payments { get; set; }
+        public IEnumerable<Client> clients { get; set; }
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace domain.models
 {
@@ -15,7 +16,11 @@ namespace domain.models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        
+        public ClassType classType { get; set; }
+        public DaysWeek daysWeek { get; set; }
+        public ClassRoom classRoom { get; set; }
+        public IEnumerable<LessonsClient> lessonsClients { get; set; }
+
     }
 
 

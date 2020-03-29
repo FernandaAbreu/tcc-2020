@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityConfiguration
 {
-    public class StateConfiguration : IEntityTypeConfiguration<State>
+    public class PlanTypeConfiguration : IEntityTypeConfiguration<PlanType>
     {
-        public void Configure(EntityTypeBuilder<State> builder)
+        public void Configure(EntityTypeBuilder<PlanType> builder)
         {
-            builder.ToTable("state");
+            builder.ToTable("plan_type");
 
             builder.Property(p => p.Id)
                 .HasColumnName("id")

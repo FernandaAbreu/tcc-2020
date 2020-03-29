@@ -5,23 +5,34 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityConfiguration
 {
-    public class CityConfiguration : IEntityTypeConfiguration<City>
+
+   
+    public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
     {
-        public void Configure(EntityTypeBuilder<City> builder)
+        public void Configure(EntityTypeBuilder<Payment> builder)
         {
-            builder.ToTable("state");
+            builder.ToTable("payment");
 
-            builder.Property(p => p.Id)
-                .HasColumnName("id")
+            builder.Property(p => p.idRegistration)
+                .HasColumnName("idRegistration")
+                .IsRequired();
+            builder.Property(p => p.idTypePlan)
+             .HasColumnName("idTypePlan")
+             .IsRequired();
+
+            builder.Property(p => p.idTypePayment)
+             .HasColumnName("idTypePayment")
+             .IsRequired();
+            builder.Property(p => p.PaymentDay)
+                .HasColumnName("createdAt")
+                .HasColumnType("datetime")
                 .IsRequired();
 
-            builder.Property(p => p.Name)
-                .HasColumnName("name")
-                .HasMaxLength(150)
-                .IsRequired();
-            builder.Property(p => p.state_id)
-              .HasColumnName("idState")
-              .IsRequired();
+            builder.Property(p => p.DueDate)
+               .HasColumnName("DueDate")
+               .HasColumnType("datetime")
+               .IsRequired(false);
+            
             builder.Property(p => p.CreatedAt)
                 .HasColumnName("createdAt")
                 .HasColumnType("datetime")
@@ -38,9 +49,17 @@ namespace EntityConfiguration
                 .IsRequired(false);
 
             builder
-                .HasOne(e => e.state)
-                .WithMany(e => e.cities)
-                .HasForeignKey(e => e.state_id);
+                .HasOne(e => e.client)
+                .WithMany(e => e.payments)
+                .HasForeignKey(e => e.idRegistration);
+            builder
+               .HasOne(e => e.TypePayment)
+               .WithMany(e => e.payments)
+               .HasForeignKey(e => e.idTypePayment);
+            builder
+               .HasOne(e => e.planType)
+               .WithMany(e => e.payments)
+               .HasForeignKey(e => e.idTypePlan);
 
             builder
                 .HasKey(p => p.Id);

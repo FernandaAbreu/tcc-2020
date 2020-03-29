@@ -5,19 +5,26 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityConfiguration
 {
-    public class UserTypeConfiguration : IEntityTypeConfiguration<UserType>
+    public class VacationConfiguration : IEntityTypeConfiguration<Vacation>
     {
-        public void Configure(EntityTypeBuilder<UserType> builder)
+       
+        public void Configure(EntityTypeBuilder<Vacation> builder)
         {
-            builder.ToTable("user_type");
+            builder.ToTable("vacation");
 
             builder.Property(p => p.Id)
                 .HasColumnName("id")
                 .IsRequired();
-
-            builder.Property(p => p.Name)
-                .HasColumnName("name")
-                .HasMaxLength(255)
+            builder.Property(p => p.user_id)
+               .HasColumnName("userId")
+               .IsRequired();
+            builder.Property(p => p.initDate)
+                .HasColumnName("initDate")
+                .HasColumnType("datetime")
+                .IsRequired();
+            builder.Property(p => p.endDate)
+                .HasColumnName("endDate")
+                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(p => p.CreatedAt)
@@ -36,15 +43,14 @@ namespace EntityConfiguration
                 .IsRequired(false);
 
             builder
-                .HasKey(p => p.Id);
+                 .HasOne(e => e.client)
+                 .WithMany(e => e.vacations)
+                 .HasForeignKey(e => e.user_id);
 
             builder
-                .HasData(
-                    new UserType { Id = 1, Name = "Admin" },
-                    new UserType { Id = 2, Name = "Recepcionista" },
-                    new UserType { Id = 3, Name = "Instrutor" },
-                    new UserType { Id = 4, Name = "Fisioterapeuta" }
-                );
+                .HasKey(p => p.Id);
+
+            
         }
     }
 }

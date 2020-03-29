@@ -13,6 +13,7 @@ namespace domain.models
         public DateTime? DeletedAt { get; set; }
         public IEnumerable<User> Users { get; set; }
         public State state { get; set; }
+        public IEnumerable<Client> clients { get; set; }
     }
 
 

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityConfiguration
 {
-    public class StateConfiguration : IEntityTypeConfiguration<State>
+    public class PhysiotherapistConfiguration : IEntityTypeConfiguration<Physiotherapist>
     {
-        public void Configure(EntityTypeBuilder<State> builder)
+        public void Configure(EntityTypeBuilder<Physiotherapist> builder)
         {
-            builder.ToTable("state");
+            builder.ToTable("physiotherapist");
 
             builder.Property(p => p.Id)
                 .HasColumnName("id")
@@ -19,7 +19,9 @@ namespace EntityConfiguration
                 .HasColumnName("name")
                 .HasMaxLength(150)
                 .IsRequired();
-
+            builder.Property(p => p.userId)
+               .HasColumnName("userId")
+               .IsRequired();
             builder.Property(p => p.CreatedAt)
                 .HasColumnName("createdAt")
                 .HasColumnType("datetime")
@@ -37,8 +39,11 @@ namespace EntityConfiguration
 
             builder
                 .HasKey(p => p.Id);
+            builder
+                .HasOne(e => e.User)
+                .WithMany(e => e.physiotherapist)
+                .HasForeignKey(e => e.userId);
 
-            
         }
     }
 }

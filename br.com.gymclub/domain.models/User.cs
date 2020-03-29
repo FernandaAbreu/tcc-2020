@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace domain.models
 {
     public class User
@@ -19,8 +21,8 @@ namespace domain.models
         public DateTime? DeletedAt { get; set; }
         public string Token { get; set; }
         public UserType UserType { get; set; }
-        public Physiotherapist physiotherapist { get; set; }
-        public Instructor instructor { get; set; }
+        public IEnumerable<Physiotherapist> physiotherapist { get; set; }
+        public IEnumerable<Instructor> instructor { get; set; }
 
     }
 }

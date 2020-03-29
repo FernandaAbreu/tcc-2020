@@ -7,6 +7,7 @@ namespace domain.models
     {
         public int IdRegistration { get; set; }
         public string Street { get; set; }
+        public string Neighborhood { get; set; }
         public int idCity { get; set; }
         public int idState { get; set; }
         public DateTime ContractEndDate { get; set; }
@@ -23,7 +24,8 @@ namespace domain.models
         public TypePayment typePayment { get; set; }
         public IEnumerable<Vacation> vacations { get; set; }
         public IEnumerable<Payment> payments { get; set; }
-
+        public IEnumerable<Evaluation> evaluations { get; set; }
+        public IEnumerable<LessonsClient> lessonsClients { get; set; }
     }
 
 

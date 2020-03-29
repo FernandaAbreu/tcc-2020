@@ -3,50 +3,42 @@
   <MonoDevelop.Ide.ItemProperties.gymclub.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.services FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.helpers FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="domain.models/TypePayment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="helpers/IPasswordManager.cs">
     <Files>
-      <File FileName="EntityConfiguration/VacationConfiguration.cs" Line="18" Column="14" />
-      <File FileName="domain.models/Vacation.cs" Line="10" Column="28" />
-      <File FileName="EntityConfiguration/UserConfiguration.cs" Line="92" Column="51" />
-      <File FileName="domain.models/Client.cs" Line="25" Column="59" />
-      <File FileName="domain.models/Evaluation.cs" Line="18" Column="9" />
-      <File FileName="EntityConfiguration/UserTypeConfiguration.cs" Line="20" Column="34" />
-      <File FileName="EntityConfiguration/UserTypeConfiguration (copiar).cs" Line="12" Column="42" />
-      <File FileName="EntityConfiguration/TypeActivtyConfiguration.cs" Line="12" Column="43" />
-      <File FileName="EntityConfiguration/CityConfiguration.cs" Line="32" Column="43" />
-      <File FileName="EntityConfiguration/StateConfiguration.cs" Line="8" Column="68" />
-      <File FileName="domain.models/State.cs" Line="12" Column="49" />
-      <File FileName="domain.models/City.cs" Line="15" Column="21" />
-      <File FileName="EntityConfiguration/StateConfiguration (copiar).cs" Line="12" Column="34" />
-      <File FileName="EntityConfiguration/PhysiotherapistConfiguration.cs" Line="45" Column="47" />
-      <File FileName="domain.models/Physiotherapist.cs" Line="12" Column="18" />
-      <File FileName="domain.models/User.cs" Line="24" Column="18" />
-      <File FileName="domain.models/UserType.cs" Line="13" Column="28" />
-      <File FileName="EntityConfiguration/InstructorConfiguration.cs" Line="44" Column="45" />
-      <File FileName="EntityConfiguration/PaaymentConfiguration.cs" Line="65" Column="36" />
-      <File FileName="domain.models/Payment.cs" Line="18" Column="21" />
-      <File FileName="domain.models/TypePayment.cs" Line="13" Column="21" />
-      <File FileName="domain.models/PlanType.cs" Line="12" Column="59" />
+      <File FileName="data.Contexts/AppDbContext.cs" Line="53" Column="75" />
+      <File FileName="EntityConfiguration/LessonConfiguration.cs" Line="8" Column="37" />
+      <File FileName="EntityConfiguration/LessonClientConfiguration.cs" Line="8" Column="44" />
+      <File FileName="services/Interfaces/IAuthService.cs" Line="7" Column="6" />
+      <File FileName="services/Interfaces/IStateService.cs" Line="11" Column="6" />
+      <File FileName="services/AuthService.cs" Line="43" Column="67" />
+      <File FileName="services/Interfaces/IUserService.cs" Line="8" Column="30" />
+      <File FileName="helpers/CustomHttpException.cs" Line="11" Column="42" />
+      <File FileName="helpers/Interface/IPasswordManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="br.com.gymclub" expanded="True">
             <Node name="data.contexts" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
             </Node>
             <Node name="data.repositories" expanded="True" />
             <Node name="docker-compose" expanded="True" />
-            <Node name="domain.models" expanded="True">
-              <Node name="TypePayment.cs" selected="True" />
-            </Node>
+            <Node name="domain.models" expanded="True" />
             <Node name="dtos" expanded="True" />
             <Node name="EntityConfiguration" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
             </Node>
             <Node name="gymclub.api" expanded="True" />
             <Node name="helpers" expanded="True" />
-            <Node name="services" expanded="True" />
+            <Node name="services" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+            </Node>
             <Node name="ui" expanded="True">
               <Node name="Pages" expanded="True" />
               <Node name="Properties" expanded="True" />
