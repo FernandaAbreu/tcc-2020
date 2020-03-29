@@ -1,0 +1,36 @@
+services:
+  gymclub.api:
+    build:
+      context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
+      dockerfile: gymclub/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44321'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: gymclub
+    ports:
+    - published: 53941
+      target: 80
+    - published: 44321
+      target: 443
+    volumes:
+    - /Users/fernandaabreu/.aspnet/https:/root/.aspnet/https:ro
+    - /Users/fernandaabreu/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+  ui:
+    build:
+      context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
+      dockerfile: ui/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44387'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: ui
+    ports:
+    - published: 43142
+      target: 80
+    - published: 44387
+      target: 443
+    volumes:
+    - /Users/fernandaabreu/.aspnet/https:/root/.aspnet/https:ro
+    - /Users/fernandaabreu/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

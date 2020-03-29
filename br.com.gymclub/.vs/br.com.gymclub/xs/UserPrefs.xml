@@ -1,0 +1,78 @@
+﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
+  <MonoDevelop.Ide.ItemProperties.data.contexts FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.gymclub.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.services FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.helpers FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="domain.models/TypePayment.cs">
+    <Files>
+      <File FileName="EntityConfiguration/VacationConfiguration.cs" Line="18" Column="14" />
+      <File FileName="domain.models/Vacation.cs" Line="10" Column="28" />
+      <File FileName="EntityConfiguration/UserConfiguration.cs" Line="92" Column="51" />
+      <File FileName="domain.models/Client.cs" Line="25" Column="59" />
+      <File FileName="domain.models/Evaluation.cs" Line="18" Column="9" />
+      <File FileName="EntityConfiguration/UserTypeConfiguration.cs" Line="20" Column="34" />
+      <File FileName="EntityConfiguration/UserTypeConfiguration (copiar).cs" Line="12" Column="42" />
+      <File FileName="EntityConfiguration/TypeActivtyConfiguration.cs" Line="12" Column="43" />
+      <File FileName="EntityConfiguration/CityConfiguration.cs" Line="32" Column="43" />
+      <File FileName="EntityConfiguration/StateConfiguration.cs" Line="8" Column="68" />
+      <File FileName="domain.models/State.cs" Line="12" Column="49" />
+      <File FileName="domain.models/City.cs" Line="15" Column="21" />
+      <File FileName="EntityConfiguration/StateConfiguration (copiar).cs" Line="12" Column="34" />
+      <File FileName="EntityConfiguration/PhysiotherapistConfiguration.cs" Line="45" Column="47" />
+      <File FileName="domain.models/Physiotherapist.cs" Line="12" Column="18" />
+      <File FileName="domain.models/User.cs" Line="24" Column="18" />
+      <File FileName="domain.models/UserType.cs" Line="13" Column="28" />
+      <File FileName="EntityConfiguration/InstructorConfiguration.cs" Line="44" Column="45" />
+      <File FileName="EntityConfiguration/PaaymentConfiguration.cs" Line="65" Column="36" />
+      <File FileName="domain.models/Payment.cs" Line="18" Column="21" />
+      <File FileName="domain.models/TypePayment.cs" Line="13" Column="21" />
+      <File FileName="domain.models/PlanType.cs" Line="12" Column="59" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="br.com.gymclub" expanded="True">
+            <Node name="data.contexts" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="data.repositories" expanded="True" />
+            <Node name="docker-compose" expanded="True" />
+            <Node name="domain.models" expanded="True">
+              <Node name="TypePayment.cs" selected="True" />
+            </Node>
+            <Node name="dtos" expanded="True" />
+            <Node name="EntityConfiguration" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="gymclub.api" expanded="True" />
+            <Node name="helpers" expanded="True" />
+            <Node name="services" expanded="True" />
+            <Node name="ui" expanded="True">
+              <Node name="Pages" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.EntityConfiguration FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.dtos FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.data.repositories FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.domain.models FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.ui PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Vários Projetos" Name="Vários Projetos">
+      <Items>
+        <StartupItem ItemId="{4045F5E4-D49F-4102-9530-D626353CEB59}" ItemName="gymclub.api" ConfigurationId="Default" />
+        <StartupItem ItemId="{E141B893-7770-463C-BCEB-E1A08F59C3E8}" ItemName="ui" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

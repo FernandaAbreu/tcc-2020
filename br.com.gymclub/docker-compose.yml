@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  gymclub.api:
+    image: ${DOCKER_REGISTRY-}gymclub
+    build:
+      context: .
+      dockerfile: gymclub/Dockerfile
+
+  ui:
+    image: ${DOCKER_REGISTRY-}ui
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+
