@@ -378,6 +378,9 @@
               },
               "/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/settings.csproj": {
                 "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/settings.csproj"
+              },
+              "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/viewmodels.csproj": {
+                "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/viewmodels.csproj"
               }
             }
           }
@@ -390,6 +393,16 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -443,6 +456,77 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/viewmodels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/viewmodels.csproj",
+        "projectName": "viewmodels",
+        "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/viewmodels.csproj",
+        "packagesPath": "/Users/fernandaabreu/.nuget/packages/",
+        "outputPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/fernandaabreu/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Web.Infrastructure": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "MiniProfiler.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "System.Web.Mvc.Expressions": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

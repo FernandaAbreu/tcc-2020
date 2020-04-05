@@ -18,7 +18,7 @@ namespace data.repositories
 
         public List<State> GetAll()
         {
-            return SearchAll<State>();
+            return SearchAll();
         }
     }
 }

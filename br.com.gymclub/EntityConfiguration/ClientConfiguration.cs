@@ -34,11 +34,15 @@ namespace EntityConfiguration
             builder.Property(p => p.idState)
               .HasColumnName("idState")
               .IsRequired();
-
+            
+                builder.Property(p => p.ContractStartDate)
+               .HasColumnName("ContractStartDate")
+               .HasColumnType("datetime")
+               .IsRequired(true);
             builder.Property(p => p.ContractEndDate)
                .HasColumnName("ContractEndDate")
                .HasColumnType("datetime")
-               .IsRequired(true);
+               .IsRequired(false);
 
             builder.Property(p => p.idPlanType)
             .HasColumnName("idPlanType")

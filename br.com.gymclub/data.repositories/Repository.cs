@@ -27,7 +27,7 @@ namespace data.repositories
         /// Retorna todos objetos da entidade manipulada definindo as propriedade para expansão.
         /// </summary>
         /// <returns>Retorna um IQueryable .</returns>
-        public IList Search<T>() where T : class
+        public IList Search<T>(object p) where T : class
         {
             try
             {

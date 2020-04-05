@@ -1,5 +1,6 @@
 ﻿using System;
 using data.Contexts;
+using data.repositories.Interfaces;
 using domain.models;
 using helpers;
 using services.Interfaces;
@@ -26,17 +27,47 @@ namespace services
 
         public User Create(User user, int advertiserId)
         {
-            throw new NotImplementedException();
+            var existingUser = _userRepository.FindByEmail(user.Email);
+            if (existingUser != null)
+            {
+                throw new CustomHttpException(422, "This username is not available");
+            }
+            user.Password = _passwordManager.HashPassword(user.Password);
+            var transaction = _context.Database.BeginTransaction();
+            try
+            {
+                var createdUserId = _userRepository.Save(user);
+             
+                transaction.Commit();
+                return _userRepository.FindById(createdUserId);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log ex
+                transaction.Rollback();
+                throw new CustomHttpException(500, "Internal server error");
+            }
         }
 
         public User FindByEmail(string email)
         {
-            throw new NotImplementedException();
+            var user = _userRepository.FindByEmail(email);
+            if (user == null)
+            {
+                throw new CustomHttpException(422, "User doesn't exist");
+            }
+            return user;
         }
 
         public bool IsAdmin(int id)
         {
-            throw new NotImplementedException();
+            var user = _userRepository.FindById(id);
+            return user.UserTypeId == 1;
+        }
+        public bool IsRecepcionist(int id)
+        {
+            var user = _userRepository.FindById(id);
+            return user.UserTypeId == 1;
         }
     }
 }

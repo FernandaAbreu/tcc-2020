@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\domain.models\domain.models.csproj" />
@@ -13,8 +14,13 @@
     <ProjectReference Include="..\settings\settings.csproj" />
     <ProjectReference Include="..\data.Contexts\data.Contexts.csproj" />
     <ProjectReference Include="..\data.repositories\data.repositories.csproj" />
+    <ProjectReference Include="..\viewmodels\viewmodels.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 </Project>

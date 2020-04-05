@@ -13,12 +13,15 @@ namespace data.repositories
         }
         public IEnumerable<Client> GetAll()
         {
-            return (System.Collections.Generic.IEnumerable<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false))
+            return (System.Collections.Generic.IEnumerable<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false));
         }
 
-        
+        public List<Client> GetClientByNameOrRGOrCPF(string searchValue)
+        {
+            return (System.Collections.Generic.List<domain.models.Client>)Search<Client>(c => c.User.Name.Contains(searchValue) || c.User.Rg.Contains(searchValue) || c.User.Cpf.Contains(searchValue));
 
-        int IClientRepository.Update<Client>(Client entity)
+        }
+        bool IClientRepository.Update<Client>(Client entity)
         {
             return Update<Client>(entity);
         }

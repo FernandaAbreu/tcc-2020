@@ -10,6 +10,7 @@ namespace domain.models
         public string Neighborhood { get; set; }
         public int idCity { get; set; }
         public int idState { get; set; }
+        public DateTime ContractStartDate { get; set; }
         public DateTime ContractEndDate { get; set; }
         public int idPlanType { get; set; }
         public int idTypePayment { get; set; }

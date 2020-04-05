@@ -14,6 +14,14 @@ namespace data.repositories
         {
         }
 
+        public User FindByCPF(string cpf)
+        {
+            return mcontexto.User
+                 .Include(p => p.UserType)
+                 .Where(u => u.Cpf == cpf)
+                 .SingleOrDefault();
+        }
+
         public User FindByEmail(string email)
         {
             return mcontexto.User
@@ -30,6 +38,19 @@ namespace data.repositories
                  .SingleOrDefault();
         }
 
+        public User FindByRg(string rg)
+        {
+            return mcontexto.User
+                  .Include(p => p.UserType)
+                  .Where(u => u.Rg == rg)
+                  .SingleOrDefault();
+        }
 
+        public  bool Update(User user)
+        {
+            return Update<User>(user);
+        }
+
+       
     }
 }

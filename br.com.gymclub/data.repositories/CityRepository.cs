@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using data.Contexts;
 using data.repositories.Interfaces;
 using domain.models;
+using Microsoft.EntityFrameworkCore;
 
 namespace data.repositories
 {
@@ -11,9 +12,8 @@ namespace data.repositories
         public CityRepository(AppDbContext contexto) : base(contexto)
         {
         }
-        public IEnumerable<City> FindByStateId(int stateId)
-        {
-            throw new NotImplementedException();
-        }
+        public List<City> FindByStateId(int stateId) => (System.Collections.Generic.List<domain.models.City>)Search<City>(c => c.state_id.Equals(stateId));
+
+        
     }
 }

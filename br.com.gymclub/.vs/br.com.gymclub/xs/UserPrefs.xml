@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
   <MonoDevelop.Ide.ItemProperties.data.contexts FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.gymclub.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="services/CityService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="domain.models/Instructor.cs">
     <Files>
       <File FileName="data.repositories/StateRepository.cs" Line="11" Column="71" />
       <File FileName="data.repositories/CityRepository.cs" Line="14" Column="10" />
@@ -20,17 +20,33 @@
       <File FileName="services/StateService.cs" Line="28" Column="46" />
       <File FileName="services/Interfaces/ICityService.cs" Line="9" Column="12" />
       <File FileName="services/Interfaces/IStateService.cs" Line="9" Column="11" />
-      <File FileName="services/CityService.cs" Line="27" Column="1" />
-      <File FileName="services/UserService.cs" Line="44" Column="33" />
+      <File FileName="services/CityService.cs" Line="23" Column="10" />
+      <File FileName="services/UserService.cs" Line="14" Column="9" />
       <File FileName="data.repositories/Interfaces/IUserRepository.cs" Line="8" Column="24" />
       <File FileName="services/Interfaces/IAuthService.cs" Line="1" Column="1" />
-      <File FileName="services/Interfaces/IInstructorService.cs" Line="12" Column="25" />
+      <File FileName="services/Interfaces/IInstructorService.cs" Line="12" Column="24" />
       <File FileName="services/Interfaces/IClientService.cs" Line="11" Column="24" />
       <File FileName="services/Interfaces/IPaymentService.cs" Line="12" Column="16" />
       <File FileName="services/Interfaces/IUserService.cs" Line="1" Column="1" />
-      <File FileName="services/ClientService.cs" Line="1" Column="1" />
-      <File FileName="services/PaymentService.cs" Line="1" Column="1" />
-      <File FileName="services/InstructorService.cs" Line="1" Column="1" />
+      <File FileName="services/ClientService.cs" Line="26" Column="1" />
+      <File FileName="services/PaymentService.cs" Line="26" Column="1" />
+      <File FileName="services/InstructorService.cs" Line="15" Column="64" />
+      <File FileName="viewmodels/Class1.cs" Line="28" Column="1" />
+      <File FileName="viewmodels/CustomValidators/CPF.cs" Line="95" Column="15" />
+      <File FileName="viewmodels/VMClient.cs" Line="44" Column="42" />
+      <File FileName="viewmodels/VMCity.cs" Line="12" Column="43" />
+      <File FileName="viewmodels/VMState.cs" Line="11" Column="8" />
+      <File FileName="domain.models/City.cs" Line="8" Column="7" />
+      <File FileName="domain.models/State.cs" Line="8" Column="7" />
+      <File FileName="domain.models/Client.cs" Line="13" Column="42" />
+      <File FileName="services/Helper/AutoMapperProfile.cs" Line="15" Column="43" />
+      <File FileName="domain.models/User.cs" Line="6" Column="18" />
+      <File FileName="EntityConfiguration/DaysWeekConfiguration.cs" Line="1" Column="1" />
+      <File FileName="EntityConfiguration/UserConfiguration.cs" Line="1" Column="1" />
+      <File FileName="EntityConfiguration/ClientConfiguration.cs" Line="41" Column="34" />
+      <File FileName="data.repositories/Interfaces/IRepository.cs" Line="25" Column="20" />
+      <File FileName="EntityConfiguration/UserTypeConfiguration.cs" Line="42" Column="26" />
+      <File FileName="domain.models/Instructor.cs" Line="11" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -41,13 +57,19 @@
               <Node name="Dependencies" expanded="True" />
               <Node name="Interfaces" expanded="True" />
             </Node>
+            <Node name="domain.models" expanded="True">
+              <Node name="Instructor.cs" selected="True" />
+            </Node>
+            <Node name="EntityConfiguration" expanded="True" />
             <Node name="helpers" expanded="True" />
             <Node name="services" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Helper" expanded="True" />
               <Node name="Interfaces" expanded="True" />
-              <Node name="CityService.cs" selected="True" />
             </Node>
             <Node name="settings" expanded="True" />
             <Node name="ui" expanded="True" />
+            <Node name="viewmodels" expanded="True" />
           </Node>
         </State>
       </Pad>

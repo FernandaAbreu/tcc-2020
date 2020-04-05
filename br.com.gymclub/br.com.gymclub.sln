@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gymclub.api", "gymclub\gymclub.api.csproj", "{4045F5E4-D49F-4102-9530-D626353CEB59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.contexts", "data.Contexts\data.Contexts.csproj", "{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.Contexts", "data.Contexts\data.Contexts.csproj", "{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.repositories", "data.repositories\data.repositories.csproj", "{DBE93929-CF84-4009-A19C-6C5C64402FAB}"
 EndProject
@@ -15,13 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityConfiguration", "Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "helpers", "helpers\helpers.csproj", "{09415116-C7EE-4209-BF09-350A9FF766A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dtos", "dtos\dtos.csproj", "{AB49F8A2-1802-4D88-9167-BCAC1F50AA6B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ui", "ui\ui.csproj", "{E141B893-7770-463C-BCEB-E1A08F59C3E8}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{048E91A5-24A0-4F3E-8107-03B18BF493F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "settings", "settings\settings.csproj", "{4DA5F50D-44AD-4236-8A9D-98E06D502229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "viewmodels", "viewmodels\viewmodels.csproj", "{CC3C8C63-4FCE-464B-A208-D92E375E632D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +57,6 @@ Global
 		{09415116-C7EE-4209-BF09-350A9FF766A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09415116-C7EE-4209-BF09-350A9FF766A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09415116-C7EE-4209-BF09-350A9FF766A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB49F8A2-1802-4D88-9167-BCAC1F50AA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB49F8A2-1802-4D88-9167-BCAC1F50AA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB49F8A2-1802-4D88-9167-BCAC1F50AA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB49F8A2-1802-4D88-9167-BCAC1F50AA6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E141B893-7770-463C-BCEB-E1A08F59C3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E141B893-7770-463C-BCEB-E1A08F59C3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E141B893-7770-463C-BCEB-E1A08F59C3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,5 +69,9 @@ Global
 		{4DA5F50D-44AD-4236-8A9D-98E06D502229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA5F50D-44AD-4236-8A9D-98E06D502229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DA5F50D-44AD-4236-8A9D-98E06D502229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

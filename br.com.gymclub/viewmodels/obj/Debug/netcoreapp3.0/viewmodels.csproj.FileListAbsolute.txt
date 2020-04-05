@@ -1,0 +1,3 @@
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/obj/Debug/netcoreapp3.0/viewmodels.csprojAssemblyReference.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/obj/Debug/netcoreapp3.0/viewmodels.AssemblyInfoInputs.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/viewmodels/obj/Debug/netcoreapp3.0/viewmodels.AssemblyInfo.cs

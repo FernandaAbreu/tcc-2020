@@ -5,10 +5,7 @@ namespace domain.models
 {
     public class Instructor
     {
-        public Instructor()
-        {
-
-        }
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public int userId { get; set; }
