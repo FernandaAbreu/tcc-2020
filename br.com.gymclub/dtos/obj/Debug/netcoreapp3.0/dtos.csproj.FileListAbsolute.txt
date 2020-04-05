@@ -1,0 +1,8 @@
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/bin/Debug/netcoreapp3.0/dtos.deps.json
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/bin/Debug/netcoreapp3.0/dtos.dll
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/bin/Debug/netcoreapp3.0/dtos.pdb
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/obj/Debug/netcoreapp3.0/dtos.csprojAssemblyReference.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/obj/Debug/netcoreapp3.0/dtos.AssemblyInfoInputs.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/obj/Debug/netcoreapp3.0/dtos.AssemblyInfo.cs
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/obj/Debug/netcoreapp3.0/dtos.dll
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/dtos/obj/Debug/netcoreapp3.0/dtos.pdb

@@ -1,4 +1,6 @@
 ﻿using System;
+using domain.models;
+
 namespace services.Interfaces
 {
     public interface IUserService

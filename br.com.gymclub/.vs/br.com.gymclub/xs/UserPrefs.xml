@@ -1,59 +1,60 @@
 ﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
   <MonoDevelop.Ide.ItemProperties.data.contexts FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.gymclub.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.services FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.helpers FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="helpers/IPasswordManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="services/CityService.cs">
     <Files>
-      <File FileName="data.Contexts/AppDbContext.cs" Line="53" Column="75" />
-      <File FileName="EntityConfiguration/LessonConfiguration.cs" Line="8" Column="37" />
-      <File FileName="EntityConfiguration/LessonClientConfiguration.cs" Line="8" Column="44" />
-      <File FileName="services/Interfaces/IAuthService.cs" Line="7" Column="6" />
-      <File FileName="services/Interfaces/IStateService.cs" Line="11" Column="6" />
-      <File FileName="services/AuthService.cs" Line="43" Column="67" />
-      <File FileName="services/Interfaces/IUserService.cs" Line="8" Column="30" />
-      <File FileName="helpers/CustomHttpException.cs" Line="11" Column="42" />
-      <File FileName="helpers/Interface/IPasswordManager.cs" Line="1" Column="1" />
+      <File FileName="data.repositories/StateRepository.cs" Line="11" Column="71" />
+      <File FileName="data.repositories/CityRepository.cs" Line="14" Column="10" />
+      <File FileName="data.repositories/UserRepository.cs" Line="22" Column="37" />
+      <File FileName="data.repositories/Repository.cs" Line="292" Column="20" />
+      <File FileName="data.repositories/Interfaces/ICityRepository.cs" Line="9" Column="13" />
+      <File FileName="data.repositories/ClientRepository.cs" Line="9" Column="60" />
+      <File FileName="data.repositories/Interfaces/IClientRepository.cs" Line="9" Column="9" />
+      <File FileName="data.repositories/InstructorRepository.cs" Line="9" Column="72" />
+      <File FileName="data.repositories/Interfaces/IInstructorRepository.cs" Line="12" Column="82" />
+      <File FileName="data.repositories/LessonsRepository.cs" Line="18" Column="1" />
+      <File FileName="data.repositories/Interfaces/ILesssonRepository.cs" Line="10" Column="20" />
+      <File FileName="data.repositories/PaymentRepository.cs" Line="21" Column="8" />
+      <File FileName="data.repositories/Interfaces/IPaymentRepository.cs" Line="13" Column="70" />
+      <File FileName="services/AuthService.cs" Line="27" Column="1" />
+      <File FileName="services/StateService.cs" Line="28" Column="46" />
+      <File FileName="services/Interfaces/ICityService.cs" Line="9" Column="12" />
+      <File FileName="services/Interfaces/IStateService.cs" Line="9" Column="11" />
+      <File FileName="services/CityService.cs" Line="27" Column="1" />
+      <File FileName="services/UserService.cs" Line="44" Column="33" />
+      <File FileName="data.repositories/Interfaces/IUserRepository.cs" Line="8" Column="24" />
+      <File FileName="services/Interfaces/IAuthService.cs" Line="1" Column="1" />
+      <File FileName="services/Interfaces/IInstructorService.cs" Line="12" Column="25" />
+      <File FileName="services/Interfaces/IClientService.cs" Line="11" Column="24" />
+      <File FileName="services/Interfaces/IPaymentService.cs" Line="12" Column="16" />
+      <File FileName="services/Interfaces/IUserService.cs" Line="1" Column="1" />
+      <File FileName="services/ClientService.cs" Line="1" Column="1" />
+      <File FileName="services/PaymentService.cs" Line="1" Column="1" />
+      <File FileName="services/InstructorService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="br.com.gymclub" expanded="True">
-            <Node name="data.contexts" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="data.repositories" expanded="True" />
-            <Node name="docker-compose" expanded="True" />
-            <Node name="domain.models" expanded="True" />
-            <Node name="dtos" expanded="True" />
-            <Node name="EntityConfiguration" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="gymclub.api" expanded="True" />
-            <Node name="helpers" expanded="True" />
-            <Node name="services" expanded="True">
+            <Node name="data.Contexts" expanded="True" />
+            <Node name="data.repositories" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Interfaces" expanded="True" />
             </Node>
-            <Node name="ui" expanded="True">
-              <Node name="Pages" expanded="True" />
-              <Node name="Properties" expanded="True" />
+            <Node name="helpers" expanded="True" />
+            <Node name="services" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="CityService.cs" selected="True" />
             </Node>
+            <Node name="settings" expanded="True" />
+            <Node name="ui" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.EntityConfiguration FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.dtos FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.data.repositories FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.domain.models FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.ui PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

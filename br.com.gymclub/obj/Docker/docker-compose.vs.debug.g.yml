@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  gymclub.api:
+    image: gymclub:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "gymclub.api"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - /Users/fernandaabreu/tcc-2020/br.com.gymclub/gymclub:/app
+      - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src
+      - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
+      - /Users/fernandaabreu/.nuget/packages/:/root/.nuget/packages:ro
+      - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"bin/Debug/netcoreapp3.0/gymclub.api.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+  ui:
+    image: ui:dev
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "ui"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui:/app
+      - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src
+      - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
+      - /Users/fernandaabreu/.nuget/packages/:/root/.nuget/packages:ro
+      - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"bin/Debug/netcoreapp3.0/ui.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

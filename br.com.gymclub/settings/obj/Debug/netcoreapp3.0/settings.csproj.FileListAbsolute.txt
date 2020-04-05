@@ -1,0 +1,10 @@
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/bin/Debug/netcoreapp3.0/appsettings.json
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/bin/Debug/netcoreapp3.0/appsettings.Development.json
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/bin/Debug/netcoreapp3.0/settings.deps.json
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/bin/Debug/netcoreapp3.0/settings.dll
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/bin/Debug/netcoreapp3.0/settings.pdb
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/obj/Debug/netcoreapp3.0/settings.csprojAssemblyReference.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/obj/Debug/netcoreapp3.0/settings.AssemblyInfoInputs.cache
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/obj/Debug/netcoreapp3.0/settings.AssemblyInfo.cs
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/obj/Debug/netcoreapp3.0/settings.dll
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/settings/obj/Debug/netcoreapp3.0/settings.pdb

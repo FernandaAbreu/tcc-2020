@@ -3,5 +3,7 @@ namespace services.Interfaces
 {
     public interface IStateService
     {
+        string GetAll();
+        
     }
 }

@@ -14,6 +14,10 @@ namespace data.Contexts
             _passwordManager = passwordManager;
         }
 
+        public AppDbContext()
+        {
+        }
+
         public DbSet<State> State { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<ClassType> ClassType { get; set; }
@@ -55,6 +59,11 @@ namespace data.Contexts
             modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
             modelBuilder.ApplyConfiguration(new ActivityTypeInstructorConfiguration());
 
+        }
+
+        public static DbContext GetContexto()
+        {
+            return new AppDbContext();
         }
     }
 }
