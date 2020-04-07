@@ -8,6 +8,7 @@ using helpers;
 using Microsoft.Extensions.Options;
 using services.Interfaces;
 using settings;
+using viewmodels;
 
 namespace services
 {
@@ -41,22 +42,90 @@ namespace services
 
         public IEnumerable<Client> GetAll()
         {
-            return 
+            return _clientRepository.GetAll();
         }
 
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue)
         {
-            throw new NotImplementedException();
+            return _clientRepository.GetClientByNameOrRGOrCPF(searchValue);
         }
 
-        public int Save<T>(T entity) where T : class
+        public Client Save<T>(VMClient entity) where T : class
         {
-            throw new NotImplementedException();
+            var existingUser = _userRepository.FindByEmail(entity.Email);
+            if (existingUser != null)
+            {
+                throw new CustomHttpException(422, " Esse “E-mail” já existe na base de dados.");
+            }
+            var existingUserWithCpf = _userRepository.FindByCPF(entity.Email);
+            if (existingUser != null)
+            {
+                throw new CustomHttpException(422, " Esse “CPF” já existe na base de dados.");
+            }
+            var existingUserWithRG = _userRepository.FindByRg(entity.Email);
+            if (existingUserWithRG != null)
+            {
+                throw new CustomHttpException(422, " Esse “RG” já existe na base de dados.");
+            }
+            var user = _mapper.Map<User>(entity);
+            user.UserTypeId = 5;
+            user.Password = _passwordManager.HashPassword(user.Password);
+            var transaction = _context.Database.BeginTransaction();
+            try
+            {
+
+                var createdUser = _userRepository.Save(user);
+                var client = _mapper.Map<domain.models.Client>(entity);
+                client.idUser = createdUser;
+                var createdInstructor = _clientRepository.Save(client);
+                transaction.Commit();
+                return _clientRepository.FindById(createdInstructor);
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log ex
+                transaction.Rollback();
+                throw new CustomHttpException(500, "Internal server error");
+            }
         }
 
-        public bool Update<T>(T entity) where T : class
+        public bool Update<T>(VMClient entity) where T : class
         {
-            throw new NotImplementedException();
+            var existingUser = _userRepository.FindByEmail(entity.Email);
+            if (existingUser != null && existingUser.Id != entity.idUser)
+            {
+                throw new CustomHttpException(422, " Esse “E-mail” já existe na base de dados.");
+            }
+            var existingUserWithCpf = _userRepository.FindByCPF(entity.Email);
+            if (existingUserWithCpf != null && existingUserWithCpf.Id != entity.idUser)
+            {
+                throw new CustomHttpException(422, " Esse “CPF” já existe na base de dados.");
+            }
+            var existingUserWithRG = _userRepository.FindByRg(entity.Email);
+            if (existingUserWithRG != null && existingUserWithRG.Id != entity.idUser)
+            {
+                throw new CustomHttpException(422, " Esse “RG” já existe na base de dados.");
+            }
+            var user = _mapper.Map<User>(entity);
+            user.UserTypeId = 5;
+            user.Password = _passwordManager.HashPassword(user.Password);
+            var transaction = _context.Database.BeginTransaction();
+            try
+            {
+
+                var createdUser = _userRepository.Update(user);
+                var instructor = _mapper.Map<domain.models.Instructor>(entity);
+
+                var createdInstructor = _clientRepository.Update(instructor);
+                transaction.Commit();
+                return createdInstructor;
+            }
+            catch (Exception ex)
+            {
+                //TODO: Log ex
+                transaction.Rollback();
+                throw new CustomHttpException(500, "Internal server error");
+            }
         }
     }
 }

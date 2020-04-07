@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using data.Contexts;
 using data.repositories.Interfaces;
 using domain.models;
@@ -11,6 +12,14 @@ namespace data.repositories
         public ClientRepository(AppDbContext contexto) : base(contexto)
         {
         }
+
+        public Client FindById(int createdInstructor)
+        {
+            return mcontexto.Client
+                 .Where(u => u.IdRegistration == createdInstructor)
+                 .SingleOrDefault();
+        }
+
         public IEnumerable<Client> GetAll()
         {
             return (System.Collections.Generic.IEnumerable<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false));

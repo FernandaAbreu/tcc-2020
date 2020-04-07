@@ -1,8 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gymclub.api", "gymclub\gymclub.api.csproj", "{4045F5E4-D49F-4102-9530-D626353CEB59}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.Contexts", "data.Contexts\data.Contexts.csproj", "{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.repositories", "data.repositories\data.repositories.csproj", "{DBE93929-CF84-4009-A19C-6C5C64402FAB}"
@@ -23,16 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "settings", "settings\settin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "viewmodels", "viewmodels\viewmodels.csproj", "{CC3C8C63-4FCE-464B-A208-D92E375E632D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{3822F658-984A-488F-A346-581030734460}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4045F5E4-D49F-4102-9530-D626353CEB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4045F5E4-D49F-4102-9530-D626353CEB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4045F5E4-D49F-4102-9530-D626353CEB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4045F5E4-D49F-4102-9530-D626353CEB59}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCCE79E4-A0AD-46C0-9534-C8117F0DFC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,5 +69,9 @@ Global
 		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3C8C63-4FCE-464B-A208-D92E375E632D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3822F658-984A-488F-A346-581030734460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3822F658-984A-488F-A346-581030734460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3822F658-984A-488F-A346-581030734460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3822F658-984A-488F-A346-581030734460}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

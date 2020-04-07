@@ -11,7 +11,7 @@ using settings;
 
 namespace services
 {
-    public class AuthService
+    public class AuthService:IAuthService
     {
         private readonly IPasswordManager _passwordManager;
         private readonly IUserService _userService;

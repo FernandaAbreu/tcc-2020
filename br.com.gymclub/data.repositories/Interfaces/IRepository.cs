@@ -22,7 +22,6 @@ namespace data.repositories
         int GetCount(Func<T, bool> predicate);
         int Save<T>(T entity) where T : class;
         bool Remove<T>(T entity) where T : class;
-        public int Save<T>(T entity) where T : class;
         bool Update<T>(T entity, int codigo) where T : class;
     }
 }

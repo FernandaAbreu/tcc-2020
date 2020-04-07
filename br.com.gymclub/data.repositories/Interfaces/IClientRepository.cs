@@ -10,5 +10,6 @@ namespace data.repositories.Interfaces
         public bool Update<T>(T entity) where T : class;
         IEnumerable<Client> GetAll();
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue);
+        Client FindById(int createdInstructor);
     }
 }

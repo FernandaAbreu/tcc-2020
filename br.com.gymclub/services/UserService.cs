@@ -67,7 +67,7 @@ namespace services
         public bool IsRecepcionist(int id)
         {
             var user = _userRepository.FindById(id);
-            return user.UserTypeId == 1;
+            return user.UserTypeId == 2;
         }
     }
 }
