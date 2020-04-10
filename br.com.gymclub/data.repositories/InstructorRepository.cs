@@ -13,9 +13,9 @@ namespace data.repositories
         {
         }
 
-        public IEnumerable<Instructor> GetAll()
+        public List<Instructor> GetAll()
         {
-            return (System.Collections.Generic.IEnumerable<domain.models.Instructor>)Search<Instructor>(c => c.DeletedAt.HasValue.Equals(false));
+            return (System.Collections.Generic.List<domain.models.Instructor>)Search<Instructor>(c => c.DeletedAt.HasValue.Equals(false));
         }
 
         public Instructor FindById(int id)

@@ -9,7 +9,8 @@ namespace services.Interfaces
     {
         public Client Save<T>(VMClient entity) where T : class;
         public bool Update<T>(VMClient entity) where T : class;
-        IEnumerable<Client> GetAll();
+        public bool Remove<T>(Client entity) where T : class;
+        List<Client> GetAll();
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue);
     }
 }

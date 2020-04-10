@@ -1,20 +1,39 @@
 ﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
   <MonoDevelop.Ide.ItemProperties.data.contexts FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="api/Controllers/ClientController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="data.repositories/PaymentRepository.cs">
     <Files>
       <File FileName="api/Startup.cs" Line="47" Column="13" />
-      <File FileName="api/Dockerfile" Line="1" Column="1" />
-      <File FileName="docker-compose.yml" Line="12" Column="11" />
-      <File FileName="api/Controllers/AuthController.cs" Line="28" Column="18" />
-      <File FileName="viewmodels/VMLoginResponse.cs" Line="3" Column="12" />
-      <File FileName="viewmodels/VMAuth.cs" Line="14" Column="33" />
-      <File FileName="services/Helper/AutoMapperProfile.cs" Line="16" Column="44" />
-      <File FileName="api/Extensions/ModelStateExtensions.cs" Line="8" Column="58" />
-      <File FileName="api/Controllers/CityController.cs" Line="11" Column="9" />
-      <File FileName="api/Controllers/StateController.cs" Line="10" Column="4" />
-      <File FileName="api/Controllers/PaymentController.cs" Line="11" Column="9" />
-      <File FileName="api/Controllers/InstructorController.cs" Line="1" Column="1" />
-      <File FileName="api/Controllers/ClientController.cs" Line="1" Column="1" />
+      <File FileName="api/Dockerfile" />
+      <File FileName="docker-compose.yml" />
+      <File FileName="api/Controllers/AuthController.cs" />
+      <File FileName="viewmodels/VMLoginResponse.cs" />
+      <File FileName="viewmodels/VMAuth.cs" Line="9" Column="42" />
+      <File FileName="services/Helper/AutoMapperProfile.cs" />
+      <File FileName="api/Extensions/ModelStateExtensions.cs" />
+      <File FileName="api/Controllers/CityController.cs" Line="1" Column="1" />
+      <File FileName="api/Controllers/StateController.cs" Line="1" Column="1" />
+      <File FileName="api/Controllers/PaymentController.cs" Line="13" Column="33" />
+      <File FileName="api/Controllers/InstructorController.cs" Line="127" Column="8" />
+      <File FileName="api/Controllers/ClientController.cs" Line="146" Column="10" />
+      <File FileName="services/ClientService.cs" Line="94" Column="10" />
+      <File FileName="data.repositories/Interfaces/IClientRepository.cs" Line="11" Column="57" />
+      <File FileName="data.repositories/ClientRepository.cs" Line="25" Column="52" />
+      <File FileName="data.repositories/Repository.cs" />
+      <File FileName="services/Interfaces/IClientService.cs" Line="12" Column="9" />
+      <File FileName="viewmodels/VMSearchpayment.cs" Line="21" Column="30" />
+      <File FileName="viewmodels/VMSearchClient.cs" Line="8" Column="1" />
+      <File FileName="viewmodels/VMSearchInstructor.cs" Line="13" Column="2" />
+      <File FileName="viewmodels/VMInstructor.cs" Line="1" Column="1" />
+      <File FileName="viewmodels/VMClient.cs" Line="40" Column="7" />
+      <File FileName="data.repositories/CityRepository.cs" Line="1" Column="1" />
+      <File FileName="services/Interfaces/IInstructorService.cs" Line="14" Column="61" />
+      <File FileName="data.repositories/Interfaces/IInstructorRepository.cs" Line="11" Column="57" />
+      <File FileName="data.repositories/InstructorRepository.cs" Line="10" Column="77" />
+      <File FileName="services/InstructorService.cs" Line="130" Column="41" />
+      <File FileName="services/Interfaces/IPaymentService.cs" Line="12" Column="57" />
+      <File FileName="services/PaymentService.cs" Line="44" Column="53" />
+      <File FileName="data.repositories/Interfaces/IPaymentRepository.cs" Line="13" Column="23" />
+      <File FileName="data.repositories/PaymentRepository.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,15 +41,18 @@
           <Node name="br.com.gymclub" expanded="True">
             <Node name="api" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="ClientController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Extensions" expanded="True" />
+            </Node>
+            <Node name="data.repositories" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="PaymentRepository.cs" selected="True" />
             </Node>
             <Node name="docker-compose" expanded="True" />
             <Node name="helpers" expanded="True" />
             <Node name="services" expanded="True">
               <Node name="Helper" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
             </Node>
             <Node name="viewmodels" expanded="True" />
           </Node>

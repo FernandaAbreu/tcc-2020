@@ -40,7 +40,7 @@ namespace services
             _appSettings = appSettings.Value;
         }
 
-        public IEnumerable<Client> GetAll()
+        public List<Client> GetAll()
         {
             return _clientRepository.GetAll();
         }
@@ -87,6 +87,10 @@ namespace services
                 transaction.Rollback();
                 throw new CustomHttpException(500, "Internal server error");
             }
+        }
+        public bool Remove<Client>(Client entity) where Client : class
+        {
+            return _clientRepository.Remove<Client>(entity);
         }
 
         public bool Update<T>(VMClient entity) where T : class

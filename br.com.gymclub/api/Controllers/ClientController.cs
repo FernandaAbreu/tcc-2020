@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using api.Extensions;
 using domain.models;
 using helpers;
@@ -69,7 +70,7 @@ namespace api.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Recepcionista")]
-        public ActionResult<Client> Delete([FromBody] VMClient payload)
+        public ActionResult<Boolean> Delete([FromBody] Client payload)
         {
             try
             {
@@ -77,8 +78,61 @@ namespace api.Controllers
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
-                //var result = _clientService.Remove<VMClient>(payload);
-                //return Ok(result);
+                
+                return _clientService.Remove<Client>(payload);
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<List<Client>> Search([FromBody] VMSearchClient payload)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState.GetErrorMessages());
+                }
+                if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
+                {
+                    return _clientService.GetAll();
+                }
+                else
+                {
+                    return _clientService.GetClientByNameOrRGOrCPF(payload.searchValue);
+                }
+                
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<List<Client>> list()
+        {
+            try
+            {
+               
+               return _clientService.GetAll();
+                
+
             }
             catch (CustomHttpException ex)
             {

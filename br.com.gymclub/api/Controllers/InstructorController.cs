@@ -1,10 +1,149 @@
 ﻿using System;
+using System.Collections.Generic;
+using api.Extensions;
+using domain.models;
+using helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using services.Interfaces;
+using viewmodels;
+
 namespace api.Controllers
 {
-    public class InstructorController
+    [Authorize]
+    [Route("/api/instructor")]
+    public class InstructorController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
-        public InstructorController()
+
+        private readonly IInstructorService _instructorService;
+       
+        public InstructorController(IInstructorService instructorService)
         {
+            _instructorService = instructorService;
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<Instructor> Create([FromBody] VMInstructor payload)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState.GetErrorMessages());
+                }
+                var result = _instructorService.Save<VMClient>(payload);
+                return Ok(result);
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+        [HttpPost]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<Instructor> Update([FromBody] VMInstructor payload)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState.GetErrorMessages());
+                }
+                var result = _instructorService.Update<VMClient>(payload);
+                return Ok(result);
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+        [HttpPost]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<Boolean> Delete([FromBody] Instructor payload)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState.GetErrorMessages());
+                }
+
+                return _instructorService.Remove<Instructor>(payload);
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<List<Instructor>> Search([FromBody] VMSearchInstructor payload)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState.GetErrorMessages());
+                }
+                if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
+                {
+                    return _instructorService.GetAll();
+                }
+                else
+                {
+                    return _instructorService.GetInstructorByNameOrRGOrCPF(payload.searchValue);
+                }
+
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Recepcionista")]
+        public ActionResult<List<Instructor>> list()
+        {
+            try
+            {
+
+                return _instructorService.GetAll();
+
+
+            }
+            catch (CustomHttpException ex)
+            {
+                return StatusCode(ex.StatusCode, ex.ErrorMessage);
+            }
+            catch (Exception ex)
+            {
+                // TODO: Log ex
+                return StatusCode(500, new { error = "Internal server error" });
+            }
         }
     }
 }

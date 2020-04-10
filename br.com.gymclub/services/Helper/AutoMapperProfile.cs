@@ -13,6 +13,7 @@ namespace services.Helper
             CreateMap<User, VMInstructor>();
             CreateMap<Instructor, VMInstructor>();
             CreateMap<Client, VMClient>();
+            CreateMap<User, VMLoginResponse>();
         }
         
         //CreateMap<User, VMClient>();

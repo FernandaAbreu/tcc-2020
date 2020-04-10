@@ -20,9 +20,9 @@ namespace data.repositories
                  .SingleOrDefault();
         }
 
-        public IEnumerable<Client> GetAll()
+        public List<Client> GetAll()
         {
-            return (System.Collections.Generic.IEnumerable<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false));
+            return (System.Collections.Generic.List<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false));
         }
 
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue)

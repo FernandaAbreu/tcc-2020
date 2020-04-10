@@ -8,7 +8,8 @@ namespace data.repositories.Interfaces
     {
         public int Save<T>(T entity) where T : class;
         public bool Update<T>(T entity) where T : class;
-        IEnumerable<Client> GetAll();
+        public bool Remove<T>(T entity) where T : class;
+        List<Client> GetAll();
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue);
         Client FindById(int createdInstructor);
     }
