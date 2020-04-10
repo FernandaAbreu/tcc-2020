@@ -94,7 +94,42 @@ namespace EntityConfiguration
             builder
                 .HasKey(p => p.IdRegistration);
 
+            builder
+                .HasData(
+                    new Client
+                    {
+                        IdRegistration = 1,
+                        Street = "Rua teste",
+                        Neighborhood="Teste  bairro",
+                        idTypePayment=3,
+                        ContractStartDate=new DateTime(DateTime.MinValue.Ticks),
+                        idPlanType=2,
+                        idCity= 5270,
+                        idState=26,
+                        idUser=2
 
+
+
+
+                    },
+                    new Client
+                    {
+                        IdRegistration = 2,
+                        Street = "Rua teste 2",
+                        Neighborhood = "Teste  bairro 2",
+                        idTypePayment = 3,
+                        ContractStartDate = new DateTime(DateTime.MinValue.Ticks),
+                        idPlanType = 2,
+                        idCity = 5270,
+                        idState = 26,
+                        idUser = 5
+
+
+
+
+                    }
+
+                );
         }
     }
 }

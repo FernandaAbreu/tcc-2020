@@ -40,6 +40,10 @@ namespace EntityConfiguration
               .HasColumnName("idTypeClass")
               .IsRequired();
 
+            builder.Property(p => p.idInstructor)
+              .HasColumnName("idInstructor")
+              .IsRequired();
+
             builder.Property(p => p.idDaysWeek)
              .HasColumnName("idDaysWeek")
              .IsRequired();
@@ -77,11 +81,68 @@ namespace EntityConfiguration
                 .HasOne(e => e.classRoom)
                 .WithMany(e => e.lessons)
                 .HasForeignKey(e => e.idClassRoom);
+            builder
+               .HasOne(e => e.instructor)
+               .WithMany(e => e.lessons)
+               .HasForeignKey(e => e.idInstructor);
 
             builder
                 .HasKey(p => p.Id);
 
 
+            builder
+                    .HasData(
+                        new Lesson
+                        {
+                            Id=1,
+                            Name="Ioga",
+                            Description=" Aulas de Ioga",
+                            InitialHour="07:00",
+                            EndHour="08:00",
+                            idTypeClass=3,
+                            idInstructor=1,
+                            idDaysWeek=3,
+                            idClassRoom=2
+
+
+                        },
+                        new Lesson
+                        {
+                            Id = 2,
+                            Name = "Karatê",
+                            InitialHour = "10:00",
+                            EndHour = "11:00",
+                            idTypeClass = 4,
+                            idInstructor = 1,
+                            idDaysWeek = 4,
+                            idClassRoom = 1
+
+                        },
+                        new Lesson
+                        {
+                            Id = 3,
+                            Name = "Natação",
+                            InitialHour = "18:00",
+                            EndHour = "19:00",
+                            idTypeClass = 5,
+                            idInstructor = 1,
+                            idDaysWeek = 5,
+                            idClassRoom = 3
+
+                        },
+                        new Lesson
+                        {
+                            Id = 4,
+                            Name = "Musculação",
+                            InitialHour = "19:00",
+                            EndHour = "20:00",
+                            idTypeClass = 5,
+                            idInstructor = 1,
+                            idDaysWeek = 6,
+                            idClassRoom = 2
+
+                        }
+                    );
         }
     }
 }

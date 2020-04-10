@@ -96,11 +96,43 @@ namespace EntityConfiguration
                     new User
                     {
                         Id = 1,
-                        Name = "Bovcontrol",
-                        Email = "admin@bovcontrol.com",
-                        Password = _passwordManager.HashPassword("BovSenha"),
+                        Name = "GymClub",
+                        Email = "admin@gymglub.com",
+                        Password = _passwordManager.HashPassword("GymclubSenha"),
                         UserTypeId = 1
-                    }
+                    },
+                    new User
+                    {
+                        Id = 2,
+                        Name = "Fernanda Abreu",
+                        Email = "fefetwsp@hotmail.com",
+                        Password = _passwordManager.HashPassword("GymclubSenha"),
+                        UserTypeId = 5
+                    },
+                    new User
+                    {
+                        Id = 3,
+                        Name = "Instrutor  teste",
+                        Email = "instrutor1@gymglub.com",
+                        Password = _passwordManager.HashPassword("GymclubSenha"),
+                        UserTypeId = 3
+                    },
+                    new User
+                    {
+                        Id = 4,
+                        Name = "Recepcionista  teste",
+                        Email = "recepcionista1@gymglub.com",
+                        Password = _passwordManager.HashPassword("GymclubSenha"),
+                        UserTypeId = 2
+                    },
+                    new User
+                    {
+                        Id = 5,
+                        Name = "Usuário 2",
+                        Email = "user2@hotmail.com",
+                        Password = _passwordManager.HashPassword("GymclubSenha"),
+                        UserTypeId = 5
+                    },
                 );
         }
 

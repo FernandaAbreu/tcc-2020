@@ -13,6 +13,7 @@ namespace domain.models
         public IEnumerable<User> users { get; set; }
         public IEnumerable<City> cities { get; set; }
         public IEnumerable<Client> clients { get; set; }
+        public IEnumerable<Instructor> instructors { get; set; }
     }
 
 

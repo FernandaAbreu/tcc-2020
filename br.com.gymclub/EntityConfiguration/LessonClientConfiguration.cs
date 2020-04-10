@@ -49,7 +49,21 @@ namespace EntityConfiguration
             .HasOne(e => e.lesson)
             .WithMany(e => e.lessonsClients)
             .HasForeignKey(e => e.idLesson);
-
+            builder
+                  .HasData(
+                      new LessonsClient
+                      {
+                          Id=1,
+                          idLesson=1,
+                          idRegistration=1
+                      },
+                       new LessonsClient
+                       {
+                           Id = 2,
+                           idLesson = 2,
+                           idRegistration = 2
+                       }
+                  );
         }
     }
 }

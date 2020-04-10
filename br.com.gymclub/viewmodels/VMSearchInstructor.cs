@@ -8,5 +8,6 @@ namespace viewmodels
              
         }
         public string searchValue { get; set; }
+
     }
 }

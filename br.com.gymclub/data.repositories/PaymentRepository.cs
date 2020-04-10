@@ -20,7 +20,7 @@ namespace data.repositories
 
         public List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue)
         {
-            return (System.Collections.Generic.List<domain.models.Payment>)Search<Payment>(c => c.client.User.Name.Contains(searchValue) ||  c.client.User.Rg.Contains(searchValue) || c.client.User.Cpf.Contains(searchValue));
+            return (System.Collections.Generic.List<domain.models.Payment>)Search<Payment>(c => (c.client.User.Name.Contains(searchValue) ||  c.client.User.Rg.Contains(searchValue) || c.client.User.Cpf.Contains(searchValue)) && c.DueDate > DateTime.Now && c.PaymentDay.Equals(null));
 
         }
 

@@ -124,5 +124,10 @@ namespace services
                 throw new CustomHttpException(500, "Internal server error");
             }
         }
+
+        public bool Remove<Client>(Client entity) where Client : class
+        {
+            return _instructorRepository.Remove<Client>(entity);
+        }
     }
 }

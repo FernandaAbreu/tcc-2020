@@ -37,8 +37,34 @@ namespace EntityConfiguration
 
             builder
                 .HasKey(p => p.Id);
-
-            
+            builder
+             .HasData(
+                new ClassRoom
+                {
+                    Id = 1,
+                    Name = "Sala 1"
+                },
+                 new ClassRoom
+                 {
+                     Id = 2,
+                     Name = "Sala 2"
+                 },
+                  new ClassRoom
+                  {
+                      Id = 3,
+                      Name = "Sala 3"
+                  },
+                   new ClassRoom
+                   {
+                       Id = 4,
+                       Name = "Sala 4"
+                   },
+                   new ClassRoom
+                   {
+                       Id = 5,
+                       Name = "Sala 5"
+                   }
+             );
         }
     }
 }

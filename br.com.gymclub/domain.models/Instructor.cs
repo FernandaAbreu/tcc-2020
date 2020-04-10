@@ -13,6 +13,12 @@ namespace domain.models
         public DateTime UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public User User { get; set; }
-        public IEnumerable<ActivityTypeInstructor> activityTypeInstructors { get; set; }
+        public State state { get; set; }
+        public City city { get; set; }
+        public string Street { get; set; }
+        public string Neighborhood { get; set; }
+        public int idCity { get; set; }
+        public int idState { get; set; }
+        public IEnumerable<Lesson> lessons { get; set; }
     }
 }

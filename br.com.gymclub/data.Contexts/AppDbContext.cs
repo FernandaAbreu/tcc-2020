@@ -23,7 +23,6 @@ namespace data.Contexts
         public DbSet<ClassType> ClassType { get; set; }
         public DbSet<DaysWeek> DaysWeek { get; set; }
         public DbSet<PlanType> PlanType { get; set; }
-        public DbSet<TypeActivity> TypeActivity { get; set; }
         public DbSet<TypePayment> TypePayment { get; set; }
         public DbSet<UserType> UserType { get; set; }
         public DbSet<User> User { get; set; }
@@ -35,7 +34,7 @@ namespace data.Contexts
         public DbSet<Lesson> Lesson { get; set; }
         public DbSet<LessonsClient> lessonsClient { get; set; }
         public DbSet<Evaluation> Evaluation { get; set; }
-        public DbSet<ActivityTypeInstructor> activityTypeInstructors { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,7 +44,6 @@ namespace data.Contexts
             modelBuilder.ApplyConfiguration(new ClassTypeConfiguration());
             modelBuilder.ApplyConfiguration(new DaysWeekConfiguration());
             modelBuilder.ApplyConfiguration(new PlanTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new TypeActivityConfiguration());       
             modelBuilder.ApplyConfiguration(new TypePaymentConfiguration());
             modelBuilder.ApplyConfiguration(new UserTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration(_passwordManager));
@@ -57,7 +55,7 @@ namespace data.Contexts
             modelBuilder.ApplyConfiguration(new LeessonClientConfiguration());
             modelBuilder.ApplyConfiguration(new LessonConfiguration());
             modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
-            modelBuilder.ApplyConfiguration(new ActivityTypeInstructorConfiguration());
+            
 
         }
 

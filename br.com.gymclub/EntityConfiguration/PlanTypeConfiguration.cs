@@ -37,8 +37,27 @@ namespace EntityConfiguration
 
             builder
                 .HasKey(p => p.Id);
+            builder
+               .HasData(new PlanType
+               {
+                   Id = 1,
+                   Name = "Anual",
 
-            
+               },
+               new PlanType
+               {
+                   Id = 2,
+                   Name = "Mensal",
+
+               },
+               new PlanType
+               {
+                   Id = 3,
+                   Name = "Semestral",
+
+               }
+               );
+
         }
     }
 }

@@ -43,8 +43,34 @@ namespace EntityConfiguration
                 .HasOne(e => e.User)
                 .WithMany(e => e.instructor)
                 .HasForeignKey(e => e.userId);
+            builder
+               .HasOne(e => e.state)
+               .WithMany(e => e.clients)
+               .HasForeignKey(e => e.idState);
+
+            builder
+               .HasOne(e => e.city)
+               .WithMany(e => e.clients)
+               .HasForeignKey(e => e.idCity);
+
+            builder
+               .HasData(
+                   new Instructor
+                   {
+                       Id = 1,
+                       Street = "Rua teste",
+                       Neighborhood = "Teste  bairro",
+                       idTypePayment = 3,
+                       ContractStartDate = new DateTime(DateTime.MinValue.Ticks),
+                       idPlanType = 2,
+                       id = 5270,
+                       idState = 26,
+                       userId = 3
 
 
+
+
+                   });
         }
     }
 }

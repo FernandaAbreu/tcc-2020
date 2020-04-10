@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using domain.models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -24,14 +25,14 @@ namespace EntityConfiguration
              .HasColumnName("idTypePayment")
              .IsRequired();
             builder.Property(p => p.PaymentDay)
-                .HasColumnName("createdAt")
+                .HasColumnName("PaymentDay")
                 .HasColumnType("datetime")
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(p => p.DueDate)
                .HasColumnName("DueDate")
                .HasColumnType("datetime")
-               .IsRequired(false);
+               .IsRequired();
             
             builder.Property(p => p.CreatedAt)
                 .HasColumnName("createdAt")
@@ -64,7 +65,39 @@ namespace EntityConfiguration
             builder
                 .HasKey(p => p.Id);
 
+            builder
+                  .HasData(
+                      new Payment
+                      {
+                          Id = 1,
+                          idTypePayment = 2,
+                          idTypePlan = 2,
+                          idRegistration = 1,
+                          DueDate= new DateTime(new DateTime(2020, 01, 29, 22, 35, 5,
+                            new CultureInfo("en-US", false).Calendar).Ticks),
+                          PaymentDay = new DateTime(new DateTime(2020, 01, 28, 22, 35, 5,
+                            new CultureInfo("en-US", false).Calendar).Ticks)
 
+                      },
+                       new Payment
+                       {
+                           Id = 2,
+                           idTypePayment = 2,
+                           idTypePlan = 2,
+                           idRegistration = 1,
+                           DueDate = new DateTime(new DateTime(2020, 02, 28, 22, 35, 5,
+                            new CultureInfo("en-US", false).Calendar).Ticks)
+                       },
+                       new Payment
+                       {
+                           Id = 2,
+                           idTypePayment = 2,
+                           idTypePlan = 2,
+                           idRegistration = 2,
+                           PaymentDay = new DateTime(new DateTime(2020, 03, 28, 22, 35, 5,
+                            new CultureInfo("en-US", false).Calendar).Ticks)
+                       }
+                  ); 
         }
     }
 }

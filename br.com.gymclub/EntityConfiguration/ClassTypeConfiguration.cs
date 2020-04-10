@@ -38,7 +38,39 @@ namespace EntityConfiguration
             builder
                 .HasKey(p => p.Id);
 
-            
+            builder
+              .HasData(
+                 new ClassType
+                 {
+                     Id = 1,
+                     Name = "Aerobica",
+
+                 },
+               new ClassType
+               {
+                   Id = 2,
+                   Name = "Individuais",
+
+               },
+               new ClassType
+               {
+                   Id = 3,
+                   Name = "Localizadas",
+
+               },
+               new ClassType
+               {
+                   Id = 4,
+                   Name = "Lutas",
+
+               },
+               new ClassType
+               {
+                   Id = 5,
+                   Name = "Esportes",
+
+               }
+                  );
         }
     }
 }

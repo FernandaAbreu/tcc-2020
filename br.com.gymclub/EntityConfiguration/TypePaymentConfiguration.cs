@@ -38,7 +38,27 @@ namespace EntityConfiguration
             builder
                 .HasKey(p => p.Id);
 
-            
+
+            builder
+                .HasData(new TypePayment
+                {
+                    Id=1,
+                    Name="Débito em conta",
+
+                },
+                new TypePayment
+                {
+                    Id = 2,
+                    Name = "Crédito",
+
+                },
+                new TypePayment
+                {
+                    Id = 3,
+                    Name = "Boleto",
+
+                }
+                );
         }
     }
 }
