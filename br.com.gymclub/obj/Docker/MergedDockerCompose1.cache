@@ -1,80 +1,28 @@
 services:
-  gymclub.api:
+  api:
     build:
       context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
-      dockerfile: gymclub/Dockerfile
-      labels:
-        com.microsoft.created-by: visual-studio
-        com.microsoft.visual-studio.project-name: gymclub.api
-      target: base
-    container_name: gymclub.api
-    entrypoint: tail -f /dev/null
-    environment:
-      ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_HTTPS_PORT: '44321'
-      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
-      ASPNETCORE_URLS: https://+:443;http://+:80
-      DOTNET_USE_POLLING_FILE_WATCHER: '1'
-      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
-    image: gymclub:dev
-    labels:
-      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
-        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.0/gymclub.api.dll"'
-      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
-        dotnet); then kill $$PID; fi"
-      com.microsoft.visualstudio.debuggee.program: dotnet
-      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+      dockerfile: api/Dockerfile
+    depends_on:
+    - db
     ports:
-    - published: 53941
+    - published: 8080
       target: 80
-    - published: 44321
-      target: 443
-    tty: true
+  db:
+    environment:
+      MYSQL_DATABASE: dbgymclub
+      MYSQL_PASSWORD: root
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: root
+    image: mysql:5.7
+    restart: always
     volumes:
-    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/gymclub:/app:rw
-    - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
-    - /Users/fernandaabreu/.aspnet/https:/root/.aspnet/https:ro
-    - /Users/fernandaabreu/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-    - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
-    - /Users/fernandaabreu/.nuget/packages:/root/.nuget/packages:ro
-    - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src:rw
+    - dbdata:/var/lib/mysql:rw
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/_MySQL_Init_Script:/docker-entrypoint-initdb.d:rw
   ui:
     build:
       context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
       dockerfile: ui/Dockerfile
-      labels:
-        com.microsoft.created-by: visual-studio
-        com.microsoft.visual-studio.project-name: ui
-      target: base
-    container_name: ui
-    entrypoint: tail -f /dev/null
-    environment:
-      ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_HTTPS_PORT: '44387'
-      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
-      ASPNETCORE_URLS: https://+:443;http://+:80
-      DOTNET_USE_POLLING_FILE_WATCHER: '1'
-      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
-    image: ui:dev
-    labels:
-      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
-        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.0/ui.dll"'
-      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
-        dotnet); then kill $$PID; fi"
-      com.microsoft.visualstudio.debuggee.program: dotnet
-      com.microsoft.visualstudio.debuggee.workingdirectory: /app
-    ports:
-    - published: 43142
-      target: 80
-    - published: 44387
-      target: 443
-    tty: true
-    volumes:
-    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui:/app:rw
-    - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
-    - /Users/fernandaabreu/.aspnet/https:/root/.aspnet/https:ro
-    - /Users/fernandaabreu/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-    - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
-    - /Users/fernandaabreu/.nuget/packages:/root/.nuget/packages:ro
-    - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src:rw
 version: '3.4'
+volumes:
+  dbdata: {}

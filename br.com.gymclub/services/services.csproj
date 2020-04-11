@@ -12,7 +12,6 @@
     <ProjectReference Include="..\domain.models\domain.models.csproj" />
     <ProjectReference Include="..\helpers\helpers.csproj" />
     <ProjectReference Include="..\settings\settings.csproj" />
-    <ProjectReference Include="..\data.Contexts\data.Contexts.csproj" />
     <ProjectReference Include="..\data.repositories\data.repositories.csproj" />
     <ProjectReference Include="..\viewmodels\viewmodels.csproj" />
   </ItemGroup>

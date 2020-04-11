@@ -132,7 +132,7 @@ namespace EntityConfiguration
                         Email = "user2@hotmail.com",
                         Password = _passwordManager.HashPassword("GymclubSenha"),
                         UserTypeId = 5
-                    },
+                    }
                 );
         }
 

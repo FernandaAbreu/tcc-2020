@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
-using data.Contexts;
 using data.repositories.Interfaces;
+using datacontexts;
 using domain.models;
 using helpers;
 using Microsoft.Extensions.Options;
@@ -50,7 +50,7 @@ namespace services
             return _clientRepository.GetClientByNameOrRGOrCPF(searchValue);
         }
 
-        public Client Save<T>(VMClient entity) where T : class
+        public Client Save(VMClient entity)
         {
             var existingUser = _userRepository.FindByEmail(entity.Email);
             if (existingUser != null)
@@ -88,12 +88,12 @@ namespace services
                 throw new CustomHttpException(500, "Internal server error");
             }
         }
-        public bool Remove<Client>(Client entity) where Client : class
+        public bool Remove(Client entity)
         {
-            return _clientRepository.Remove<Client>(entity);
+            return _clientRepository.Remove(entity);
         }
 
-        public bool Update<T>(VMClient entity) where T : class
+        public bool Update(VMClient entity)
         {
             var existingUser = _userRepository.FindByEmail(entity.Email);
             if (existingUser != null && existingUser.Id != entity.idUser)
@@ -118,9 +118,9 @@ namespace services
             {
 
                 var createdUser = _userRepository.Update(user);
-                var instructor = _mapper.Map<domain.models.Instructor>(entity);
+                var client = _mapper.Map<domain.models.Client>(entity);
 
-                var createdInstructor = _clientRepository.Update(instructor);
+                var createdInstructor = _clientRepository.Update(client);
                 transaction.Commit();
                 return createdInstructor;
             }
@@ -131,5 +131,7 @@ namespace services
                 throw new CustomHttpException(500, "Internal server error");
             }
         }
+
+        
     }
 }

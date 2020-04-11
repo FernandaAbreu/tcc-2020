@@ -6,9 +6,9 @@ namespace data.repositories.Interfaces
 {
     public interface IClientRepository
     {
-        public int Save<T>(T entity) where T : class;
-        public bool Update<T>(T entity) where T : class;
-        public bool Remove<T>(T entity) where T : class;
+        public int Save(Client entity);
+        public bool Update(Client entity);
+        public bool Remove(Client entity);
         List<Client> GetAll();
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue);
         Client FindById(int createdInstructor);

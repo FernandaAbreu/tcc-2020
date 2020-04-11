@@ -5,7 +5,7 @@ namespace data.repositories.Interfaces
 {
     public interface IUserRepository
     {
-        public int Save<T>(T entity) where T : class;
+        public int Save(User entity);
         User FindByEmail(string email);
         User FindById(int id);
         User FindByCPF(string email);

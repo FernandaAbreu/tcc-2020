@@ -4,14 +4,71 @@
     "/Users/fernandaabreu/tcc-2020/br.com.gymclub/services/services.csproj": {}
   },
   "projects": {
-    "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj": {
+    "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj",
-        "projectName": "data.Contexts",
-        "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj",
+        "projectUniqueName": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj",
+        "projectName": "data.repositories",
+        "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj",
         "packagesPath": "/Users/fernandaabreu/.nuget/packages/",
-        "outputPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/obj/",
+        "outputPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/fernandaabreu/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj": {
+                "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj",
+        "projectName": "datacontexts",
+        "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj",
+        "packagesPath": "/Users/fernandaabreu/.nuget/packages/",
+        "outputPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -64,63 +121,6 @@
               "version": "[3.1.1, )"
             }
           },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj",
-        "projectName": "data.repositories",
-        "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj",
-        "packagesPath": "/Users/fernandaabreu/.nuget/packages/",
-        "outputPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/obj/",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "/Users/fernandaabreu/.config/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.0": {
-            "projectReferences": {
-              "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj": {
-                "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.0": {
           "imports": [
             "net461",
             "net462",
@@ -364,9 +364,6 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj": {
-                "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj"
-              },
               "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj": {
                 "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj"
               },
@@ -401,10 +398,6 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[3.1.3, )"
             }
           },
           "imports": [

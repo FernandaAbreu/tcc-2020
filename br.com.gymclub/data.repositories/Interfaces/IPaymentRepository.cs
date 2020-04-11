@@ -6,8 +6,8 @@ namespace data.repositories.Interfaces
 {
     public interface IPaymentRepository
     {
-        public int Save<T>(T entity) where T : class;
-        public bool Update<T>(T entity) where T : class;
+        public int Save(Payment entity);
+        public bool Update(Payment entity);
         IEnumerable<Payment> GetAll();
         List<Payment> GetPaymentsThatAreNotPaidAndNeeded();
         List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue);

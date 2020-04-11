@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
-using data.Contexts;
 using data.repositories.Interfaces;
+using datacontexts;
 using domain.models;
 using helpers;
 using Microsoft.Extensions.Options;
@@ -46,7 +46,7 @@ namespace services
             return _instructorRepository.GetInstructorByNameOrRGOrCPF(searchValue);
         }
 
-        public domain.models.Instructor Save<Instructor>(VMInstructor entity) where Instructor : class
+        public domain.models.Instructor Save(VMInstructor entity)
         {
 
             var existingUser = _userRepository.FindByEmail(entity.Email);
@@ -86,7 +86,7 @@ namespace services
             }
         }
 
-        public bool Update<Instructor>(VMInstructor entity) where Instructor : class
+        public bool Update(VMInstructor entity)
         {
             var existingUser = _userRepository.FindByEmail(entity.Email);
             if (existingUser != null &&  existingUser.Id!=entity.idUser)
@@ -125,9 +125,18 @@ namespace services
             }
         }
 
-        public bool Remove<Client>(Client entity) where Client : class
+       
+
+        List<domain.models.Instructor> IInstructorService.GetAll()
         {
-            return _instructorRepository.Remove<Client>(entity);
+            return _instructorRepository.GetAll();
         }
+
+        public bool Remove(domain.models.Instructor entity)
+        {
+            return _instructorRepository.Remove(entity);
+        }
+
+       
     }
 }

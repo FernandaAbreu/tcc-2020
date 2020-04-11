@@ -33,7 +33,7 @@ namespace api.Controllers
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
-                var result = _instructorService.Save<VMClient>(payload);
+                var result = _instructorService.Save(payload);
                 return Ok(result);
             }
             catch (CustomHttpException ex)
@@ -56,7 +56,7 @@ namespace api.Controllers
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
-                var result = _instructorService.Update<VMClient>(payload);
+                var result = _instructorService.Update(payload);
                 return Ok(result);
             }
             catch (CustomHttpException ex)
@@ -80,7 +80,7 @@ namespace api.Controllers
                     return BadRequest(ModelState.GetErrorMessages());
                 }
 
-                return _instructorService.Remove<Instructor>(payload);
+                return _instructorService.Remove(payload);
             }
             catch (CustomHttpException ex)
             {

@@ -1,4 +1,6 @@
-﻿public class LoginRequestDto
+﻿using System.ComponentModel.DataAnnotations;
+
+public class LoginRequestDto
     {
         [Required]
         public string Email { get; set; }

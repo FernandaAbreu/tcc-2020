@@ -1,20 +1,20 @@
 version: '3.4'
 
 services:
-  gymclub.api:
-    image: gymclub:dev
-    container_name: gymclub.api
+  api:
+    image: api:dev
+    container_name: api
     build:
       target: base
       labels:
         com.microsoft.created-by: "visual-studio"
-        com.microsoft.visual-studio.project-name: "gymclub.api"
+        com.microsoft.visual-studio.project-name: "api"
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - /Users/fernandaabreu/tcc-2020/br.com.gymclub/gymclub:/app
+      - /Users/fernandaabreu/tcc-2020/br.com.gymclub/api:/app
       - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src
       - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
       - /Users/fernandaabreu/.nuget/packages/:/root/.nuget/packages:ro
@@ -23,7 +23,7 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/netcoreapp3.0/gymclub.api.dll\""
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/netcoreapp3.0/api.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true

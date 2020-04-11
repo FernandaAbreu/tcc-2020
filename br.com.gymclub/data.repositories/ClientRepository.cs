@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using data.Contexts;
 using data.repositories.Interfaces;
+using datacontexts;
 using domain.models;
 
 namespace data.repositories
@@ -22,17 +22,17 @@ namespace data.repositories
 
         public List<Client> GetAll()
         {
-            return (System.Collections.Generic.List<domain.models.Client>)Search<Client>(c => c.DeletedAt.HasValue.Equals(false));
+            return (System.Collections.Generic.List<domain.models.Client>)Search(c => c.DeletedAt.HasValue.Equals(false));
         }
 
         public List<Client> GetClientByNameOrRGOrCPF(string searchValue)
         {
-            return (System.Collections.Generic.List<domain.models.Client>)Search<Client>(c => c.User.Name.Contains(searchValue) || c.User.Rg.Contains(searchValue) || c.User.Cpf.Contains(searchValue));
+            return (System.Collections.Generic.List<domain.models.Client>)Search(c => c.User.Name.Contains(searchValue) || c.User.Rg.Contains(searchValue) || c.User.Cpf.Contains(searchValue));
 
         }
-        bool IClientRepository.Update<Client>(Client entity)
+        bool IClientRepository.Update(Client entity)
         {
-            return Update<Client>(entity);
+            return Update(entity);
         }
     }
 }

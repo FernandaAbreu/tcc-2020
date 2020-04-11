@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using data.Contexts;
+using datacontexts;
 using data.repositories;
 using data.repositories.Interfaces;
 using domain.models;
@@ -44,12 +44,7 @@ namespace api
 
             services.AddDbContext<AppDbContext>
                 (options => options.UseMySql(appSettings.Get<AppSettings>().MySqlConnectionString));
-            services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<ICityService, CityService>();
-            services.AddScoped<IClientService, ClientService>();
-            services.AddScoped<IInstructorService, InstructorService<Instructor>>();
-            services.AddScoped<IPaymentService, PaymentService<Payment>>();
-            services.AddScoped<IStateService, StateService>();
+            
             services.AddScoped<IPasswordManager, PasswordManager>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICityRepository, CityRepository>();
@@ -58,6 +53,14 @@ namespace api
             services.AddScoped<ILesssonRepository, LessonsRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IStateRepository, StateRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IClientService, ClientService>();
+           
+            services.AddScoped<IInstructorService, InstructorService<Instructor>>();
+            services.AddScoped<IPaymentService, PaymentService<Payment>>();
+            services.AddScoped<IStateService, StateService>();
 
 
             services.AddAuthentication(x => {
@@ -79,9 +82,19 @@ namespace api
                 });
 
              services.AddAutoMapper(typeof(Startup));
-             services.AddSwaggerGen(c => {
-                 c.SwaggerDoc("docs", new OpenApiInfo { Title = "GymClub WebAPI" });
-                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+             services.AddSwaggerGen(c =>
+             {
+                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                 {
+                     Title = "GymClub",
+                     Version = "v1",
+                     Description = "GymClub API "
+
+                 });
+                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+             }
+                 );
+                 /*c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                  {
                      Description = "JWT Authorization header using 'bearer' scheme",
                      Name = "Authorization",
@@ -95,8 +108,8 @@ namespace api
                          Id = "Bearer",
                          Type = ReferenceType.SecurityScheme
                      }}, new List<string>()}
-                 });
-             });
+                 });*/
+             //});
             services.AddControllers();
         }
 
@@ -108,12 +121,23 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
+            app.UseCors(x => x
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowAnyOrigin());
 
+            app.UseAuthentication();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "GymClub API");
+
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

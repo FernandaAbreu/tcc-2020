@@ -13,7 +13,7 @@ COPY settings/settings.csproj settings/
 COPY services/services.csproj services/
 COPY domain.models/domain.models.csproj domain.models/
 COPY helpers/helpers.csproj helpers/
-COPY data.Contexts/data.Contexts.csproj data.Contexts/
+COPY datacontexts/datacontexts.csproj datacontexts/
 COPY EntityConfiguration/EntityConfiguration.csproj EntityConfiguration/
 COPY data.repositories/data.repositories.csproj data.repositories/
 RUN dotnet restore "api/api.csproj"

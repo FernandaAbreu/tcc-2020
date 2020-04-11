@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using data.Contexts;
 using data.repositories.Interfaces;
+using datacontexts;
 using domain.models;
 
 namespace data.repositories
@@ -14,7 +14,7 @@ namespace data.repositories
 
         public IEnumerable<Lesson> GetAll()
         {
-            return (System.Collections.Generic.IEnumerable<domain.models.Lesson>)Search<Lesson>(c => c.DeletedAt.HasValue.Equals(false));
+            return (System.Collections.Generic.IEnumerable<domain.models.Lesson>)Search(c => c.DeletedAt.HasValue.Equals(false));
 
         }
 

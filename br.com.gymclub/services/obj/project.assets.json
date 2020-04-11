@@ -2719,7 +2719,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "data.Contexts/1.0.0": {
+      "data.repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "datacontexts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/data.repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/data.repositories.dll": {}
+        }
+      },
+      "datacontexts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
         "dependencies": {
@@ -2730,23 +2743,10 @@
           "helpers": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/data.Contexts.dll": {}
+          "bin/placeholder/datacontexts.dll": {}
         },
         "runtime": {
-          "bin/placeholder/data.Contexts.dll": {}
-        }
-      },
-      "data.repositories/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "dependencies": {
-          "data.Contexts": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/data.repositories.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/data.repositories.dll": {}
+          "bin/placeholder/datacontexts.dll": {}
         }
       },
       "domain.models/1.0.0": {
@@ -8449,15 +8449,15 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "data.Contexts/1.0.0": {
-      "type": "project",
-      "path": "../data.Contexts/data.Contexts.csproj",
-      "msbuildProject": "../data.Contexts/data.Contexts.csproj"
-    },
     "data.repositories/1.0.0": {
       "type": "project",
       "path": "../data.repositories/data.repositories.csproj",
       "msbuildProject": "../data.repositories/data.repositories.csproj"
+    },
+    "datacontexts/1.0.0": {
+      "type": "project",
+      "path": "../datacontexts/datacontexts.csproj",
+      "msbuildProject": "../datacontexts/datacontexts.csproj"
     },
     "domain.models/1.0.0": {
       "type": "project",
@@ -8489,7 +8489,6 @@
     ".NETCoreApp,Version=v3.0": [
       "AutoMapper >= 9.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
-      "data.Contexts >= 1.0.0",
       "data.repositories >= 1.0.0",
       "domain.models >= 1.0.0",
       "helpers >= 1.0.0",
@@ -8525,9 +8524,6 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj": {
-              "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj"
-            },
             "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj": {
               "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.repositories/data.repositories.csproj"
             },

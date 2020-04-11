@@ -22,14 +22,14 @@ namespace services
             _appSettings = appSettings.Value;
         }
 
-       
+      
 
-        public int Save<Payment>(Payment entity) where Payment : class
+        public int Save(domain.models.Payment entity)
         {
             return _paymentRepository.Save(entity);
         }
 
-        public bool Update<Payment>(Payment entity) where Payment : class
+        public bool Update(domain.models.Payment entity)
         {
             throw new NotImplementedException();
         }

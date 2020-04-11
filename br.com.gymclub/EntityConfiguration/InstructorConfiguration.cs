@@ -45,12 +45,12 @@ namespace EntityConfiguration
                 .HasForeignKey(e => e.userId);
             builder
                .HasOne(e => e.state)
-               .WithMany(e => e.clients)
+               .WithMany(e => e.instructors)
                .HasForeignKey(e => e.idState);
 
             builder
                .HasOne(e => e.city)
-               .WithMany(e => e.clients)
+               .WithMany(e => e.instructors)
                .HasForeignKey(e => e.idCity);
 
             builder
@@ -60,10 +60,7 @@ namespace EntityConfiguration
                        Id = 1,
                        Street = "Rua teste",
                        Neighborhood = "Teste  bairro",
-                       idTypePayment = 3,
-                       ContractStartDate = new DateTime(DateTime.MinValue.Ticks),
-                       idPlanType = 2,
-                       id = 5270,
+                       idCity = 5270,
                        idState = 26,
                        userId = 3
 

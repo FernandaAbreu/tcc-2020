@@ -10,7 +10,6 @@
         "dependencies": {
           "AutoMapper": "9.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
-          "data.Contexts": "1.0.0",
           "data.repositories": "1.0.0",
           "domain.models": "1.0.0",
           "helpers": "1.0.0",
@@ -1692,7 +1691,15 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "data.Contexts/1.0.0": {
+      "data.repositories/1.0.0": {
+        "dependencies": {
+          "datacontexts": "1.0.0"
+        },
+        "runtime": {
+          "data.repositories.dll": {}
+        }
+      },
+      "datacontexts/1.0.0": {
         "dependencies": {
           "EntityConfiguration": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.3",
@@ -1701,15 +1708,7 @@
           "helpers": "1.0.0"
         },
         "runtime": {
-          "data.Contexts.dll": {}
-        }
-      },
-      "data.repositories/1.0.0": {
-        "dependencies": {
-          "data.Contexts": "1.0.0"
-        },
-        "runtime": {
-          "data.repositories.dll": {}
+          "datacontexts.dll": {}
         }
       },
       "domain.models/1.0.0": {
@@ -3044,12 +3043,12 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
-    "data.Contexts/1.0.0": {
+    "data.repositories/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "data.repositories/1.0.0": {
+    "datacontexts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

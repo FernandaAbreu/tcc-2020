@@ -7,20 +7,21 @@ using services.Interfaces;
 
 namespace api.Controllers
 {
-    [Authorize]
+    
     [Route("/api/state")]
     public class StateController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         private readonly IStateService _stateService;
         private readonly ICityService _cityService;
-        public StateController(IStateService stateService)
+        public StateController(IStateService stateService,ICityService cityService)
         {
             _stateService = stateService;
+            _cityService = cityService;
         }
 
         [HttpGet]
         //[Authorize(Roles = "Recepcionista")]
-        public ActionResult<IEnumerable<State>> GetAll()
+        public ActionResult<IEnumerable<State>> Get()
         {
             try
             {

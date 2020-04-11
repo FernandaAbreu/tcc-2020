@@ -6,8 +6,8 @@ namespace data.repositories.Interfaces
 {
     public interface ILesssonRepository
     {
-        public int Save<T>(T entity) where T : class;
-        public bool Update<T>(T entity) where T : class;
+        public int Save(Lesson entity);
+        public bool Update(Lesson entity);
         IEnumerable<Lesson> GetAll();
     }
 }

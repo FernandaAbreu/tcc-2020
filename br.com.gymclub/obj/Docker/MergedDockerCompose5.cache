@@ -1,0 +1,98 @@
+networks:
+  backend:
+    driver: bridge
+services:
+  api:
+    build:
+      context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
+      dockerfile: api/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: api
+      target: base
+    container_name: api
+    depends_on:
+    - db
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: http://+:5556
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: api:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/api.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+    ports:
+    - published: 5556
+      target: 5556
+    tty: true
+    volumes:
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/api:/app:rw
+    - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
+    - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /Users/fernandaabreu/.nuget/packages:/root/.nuget/packages:ro
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src:rw
+  db:
+    environment:
+      MYSQL_DATABASES: dbgymclub
+      MYSQL_HOST: localhost
+      MYSQL_MY_DATABASE: dbgymclub
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: '33306'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: gymclubuser
+    image: mysql:5.7
+    networks:
+      backend: {}
+    ports:
+    - published: 3306
+      target: 3306
+    restart: always
+    volumes:
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/_MySQL_Init_Script:/docker-entrypoint-initdb.d:rw
+    - dbdata:/var/lib/mysql:rw
+  ui:
+    build:
+      context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
+      dockerfile: ui/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ui
+      target: base
+    container_name: ui
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: ui:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.0/ui.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      backend: {}
+    ports:
+    - published: 8520
+      target: 80
+    tty: true
+    volumes:
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui:/app:rw
+    - /Users/fernandaabreu/vsdbg/vs2017u5:/remote_debugger:rw
+    - /usr/local/share/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /Users/fernandaabreu/.nuget/packages:/root/.nuget/packages:ro
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/src:rw
+version: '3.4'
+volumes:
+  dbdata: {}

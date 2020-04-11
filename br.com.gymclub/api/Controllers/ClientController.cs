@@ -32,7 +32,7 @@ namespace api.Controllers
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
-                var result = _clientService.Save<VMClient>(payload);
+                var result = _clientService.Save(payload);
                 return Ok(result);
             }
             catch (CustomHttpException ex)
@@ -55,7 +55,7 @@ namespace api.Controllers
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
-                var result = _clientService.Update<VMClient>(payload);
+                var result = _clientService.Update(payload);
                 return Ok(result);
             }
             catch (CustomHttpException ex)
@@ -79,7 +79,7 @@ namespace api.Controllers
                     return BadRequest(ModelState.GetErrorMessages());
                 }
                 
-                return _clientService.Remove<Client>(payload);
+                return _clientService.Remove(payload);
             }
             catch (CustomHttpException ex)
             {
@@ -125,7 +125,7 @@ namespace api.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Recepcionista")]
-        public ActionResult<List<Client>> list()
+        public ActionResult<List<Client>> Get()
         {
             try
             {

@@ -1,43 +1,54 @@
 ﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
-  <MonoDevelop.Ide.ItemProperties.data.contexts FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="EntityConfiguration/LessonClientConfiguration.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EntityConfiguration/CityConfiguration.cs">
     <Files>
-      <File FileName="EntityConfiguration/TypePaymentConfiguration.cs" Line="1" Column="1" />
-      <File FileName="EntityConfiguration/ClientConfiguration.cs" Line="82" Column="46" />
-      <File FileName="EntityConfiguration/PlanTypeConfiguration.cs" Line="42" Column="17" />
-      <File FileName="EntityConfiguration/CityConfiguration.cs" Line="36907" Column="30" />
-      <File FileName="EntityConfiguration/UserConfiguration.cs" Line="135" Column="22" />
-      <File FileName="EntityConfiguration/InstructorConfiguration.cs" Line="59" Column="21" />
-      <File FileName="domain.models/Instructor.cs" Line="16" Column="18" />
-      <File FileName="domain.models/Client.cs" Line="9" Column="1" />
-      <File FileName="domain.models/DaysWeek.cs" Line="1" Column="1" />
-      <File FileName="domain.models/Evaluation.cs" Line="1" Column="1" />
-      <File FileName="domain.models/State.cs" Line="16" Column="65" />
-      <File FileName="domain.models/City.cs" Line="18" Column="65" />
-      <File FileName="EntityConfiguration/UserTypeConfiguration.cs" Line="1" Column="1" />
-      <File FileName="EntityConfiguration/LessonConfiguration.cs" Line="141" Column="43" />
-      <File FileName="EntityConfiguration/PaymentConfiguration.cs" Line="1" Column="1" />
-      <File FileName="EntityConfiguration/LessonClientConfiguration.cs" Line="52" Column="1" />
-      <File FileName="EntityConfiguration/ClassTypeConfiguration.cs" Line="70" Column="36" />
-      <File FileName="domain.models/Lesson.cs" Line="11" Column="23" />
-      <File FileName="EntityConfiguration/ClassRoomConfiguration.cs" Line="1" Column="1" />
+      <File FileName="datacontexts/AppDbContext.cs" Line="43" Column="51" />
+      <File FileName="EntityConfiguration/StateConfiguration.cs" Line="8" Column="18" />
+      <File FileName="EntityConfiguration/CityConfiguration.cs" Line="8" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="br.com.gymclub" expanded="True">
             <Node name="api" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Extensions" expanded="True" />
             </Node>
-            <Node name="data.Contexts" expanded="True" />
+            <Node name="data.repositories" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
+            </Node>
+            <Node name="datacontexts" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
+            </Node>
             <Node name="docker-compose" expanded="True" />
-            <Node name="domain.models" expanded="True" />
-            <Node name="EntityConfiguration" expanded="True">
-              <Node name="LessonClientConfiguration.cs" selected="True" />
+            <Node name="domain.models" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
             </Node>
-            <Node name="viewmodels" expanded="True" />
+            <Node name="EntityConfiguration" expanded="True">
+              <Node name="CityConfiguration.cs" selected="True" />
+            </Node>
+            <Node name="services" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
+            </Node>
+            <Node name="settings" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="ui" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

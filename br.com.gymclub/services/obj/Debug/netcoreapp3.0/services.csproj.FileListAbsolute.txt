@@ -3,7 +3,6 @@
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/services.deps.json
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/services.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/services.pdb
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/data.Contexts.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/data.repositories.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/domain.models.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/EntityConfiguration.dll
@@ -13,7 +12,6 @@
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/domain.models.pdb
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/helpers.pdb
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/settings.pdb
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/data.Contexts.pdb
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/data.repositories.pdb
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/viewmodels.pdb
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/EntityConfiguration.pdb
@@ -24,3 +22,5 @@
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/obj/Debug/netcoreapp3.0/services.csproj.CopyComplete
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/obj/Debug/netcoreapp3.0/services.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/services/obj/Debug/netcoreapp3.0/services.pdb
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/datacontexts.dll
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/services/bin/Debug/netcoreapp3.0/datacontexts.pdb

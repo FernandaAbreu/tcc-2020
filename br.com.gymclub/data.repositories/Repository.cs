@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using data.Contexts;
+using datacontexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace data.repositories
 {
-    public class Repository<T> : IDisposable, IRepository<T> where T : class
+    public abstract class Repository<TEntity> : IDisposable where TEntity : class
     {
         protected readonly AppDbContext mcontexto;
         private bool mdisposed = false;
-        internal DbSet<T> dbSet;
+        internal DbSet<TEntity> dbSet;
 
         public Repository(AppDbContext contexto)
         {
             mcontexto = contexto;
-            dbSet = mcontexto.Set<T>();
+            dbSet = mcontexto.Set<TEntity>();
 
            
         }
@@ -27,11 +27,11 @@ namespace data.repositories
         /// Retorna todos objetos da entidade manipulada definindo as propriedade para expansão.
         /// </summary>
         /// <returns>Retorna um IQueryable .</returns>
-        public IList Search<T>(object p) where T : class
+        public IList Search(object p) 
         {
             try
             {
-                return mcontexto.Set<T>().ToList();
+                return dbSet.ToList();
             }
             catch (Exception ex)
             {
@@ -71,11 +71,11 @@ namespace data.repositories
         /// </summary>
         /// <param name="predicate">Representa a condição a ser buscada pela entidade</param>
         /// <returns>Retorna um IQueryable</returns>
-        public IList Search<T>(Expression<Func<T, bool>> predicate) where T : class
+        public IList Search(Expression<Func<TEntity, bool>> predicate) 
         {
             try
             {
-                return mcontexto.Set<T>().Where(predicate).ToList<T>();
+                return dbSet.Where(predicate).ToList();
             }
             catch (Exception ex)
             {
@@ -84,11 +84,11 @@ namespace data.repositories
                 throw new Exception(ex.Message, ex);
             }
         }
-        public List<T> SearchAll()
+        public List<TEntity> SearchAll()
         {
             try
             {
-                return mcontexto.Set<T>().ToList<T>();
+                return dbSet.ToList();
             }
             catch (Exception ex)
             {
@@ -109,12 +109,12 @@ namespace data.repositories
         /// <param name="skip">Representa apartir de qual resgistro a busca deve começar a retornar</param>
         /// <param name="take">Representa a quantidade de registros a serem retornados</param>
         /// <returns>Retorna um IQueryable</returns>
-        public IList<T> Search(Expression<Func<T, bool>> predicate, Expression<Func<T, bool>> orderExpression, int skip, int take)
+        public IList<TEntity> Search(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, bool>> orderExpression, int skip, int take)
         {
             try
             {
 
-                return mcontexto.Set<T>().Where(predicate).Distinct().OrderBy(orderExpression).Skip(skip).Take(take).ToList<T>();
+                return dbSet.Where(predicate).Distinct().OrderBy(orderExpression).Skip(skip).Take(take).ToList();
             }
             catch (Exception ex)
             {
@@ -124,12 +124,12 @@ namespace data.repositories
             }
         }
 
-        public int GetCount(Func<T, bool> predicate)
+        public int GetCount(Func<TEntity, bool> predicate)
         {
             try
             {
 
-                return mcontexto.Set<T>().Where(predicate).Distinct().Count();
+                return dbSet.Where(predicate).Distinct().Count();
             }
             catch (Exception ex)
             {
@@ -147,12 +147,12 @@ namespace data.repositories
         /// </summary>
         /// <param name="predicate">Representa a condição a ser buscada pela entidade</param>
         /// <returns>Retorna o objeto</returns>
-        public T SearchVO(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public TEntity SearchVO(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
         {
             try
             {
 
-                return mcontexto.Set<T>().Where(predicate).FirstOrDefault();
+                return dbSet.Where(predicate).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -162,12 +162,12 @@ namespace data.repositories
             }
         }
 
-        public T SearchSingle<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate) where T : class
+        public TEntity SearchSingle(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate) 
         {
             try
             {
 
-                return mcontexto.Set<T>().Where(predicate).FirstOrDefault();
+                return dbSet.Where(predicate).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -185,12 +185,12 @@ namespace data.repositories
         /// <param name="predicate">Representa a condição a ser buscada pela entidade</param>
         /// <param name="include">Lista de propriedades para expansão.</param>
         /// <returns>Retorna o objeto</returns>
-        public T Search(System.Linq.Expressions.Expression<Func<T, bool>> predicate, string include)
+        public TEntity Search(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate, string include)
         {
             try
             {
 
-                return mcontexto.Set<T>().Include(include).Where(predicate).FirstOrDefault();
+                return dbSet.Include(include).Where(predicate).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -204,12 +204,12 @@ namespace data.repositories
         /// </summary>
         /// <param name="include">Lista de propriedades para expansão.</param>
         /// <returns>Retorna o objeto</returns>
-        public T Search(string include)
+        public TEntity Search(string include)
         {
             try
             {
 
-                return mcontexto.Set<T>().Include(include).FirstOrDefault();
+                return dbSet.Include(include).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -224,11 +224,11 @@ namespace data.repositories
         /// <param name="include">Lista de propriedades para expansão.</param>
         /// <param name="predicate">Representa a condição a ser testada pela entidade</param>
         /// <returns>Retorna um IQueryable</returns>
-        public IList<T> Search<T>(Expression<Func<T, bool>> predicate, string include) where T : class
+        public IList<TEntity> SearchPredcteAndIInclude(Expression<Func<TEntity, bool>> predicate, string include) 
         {
             try
             {
-                IList<T> result = mcontexto.Set<T>().Include(include).Where(predicate).ToList<T>();
+                IList<TEntity> result = dbSet.Include(include).Where(predicate).ToList();
                 return result;
             }
             catch (Exception ex)
@@ -244,12 +244,12 @@ namespace data.repositories
         /// </summary>
         /// <param name="entity">Entidade a ser incluída.</param>
         /// <returns>Retorna a entidade após a inclusão. Apresentando algum erro retorna null.</returns>
-        public int Save<T>(T entity) where T : class
+        public int Save(TEntity entity) 
         {
             //TODO:metodo de validação das entidades
             try
             {
-                mcontexto.Set<T>().Add(entity);
+                dbSet.Add(entity);
                 return mcontexto.SaveChanges();
             }
             catch (Exception ex)
@@ -266,12 +266,12 @@ namespace data.repositories
         /// </summary>
         /// <param name="entity">Entidade a ser deletada.</param>
         /// <returns>Retorna true se a entidade for excluido. Caso contrário retorna false.</returns>
-        public bool Remove<T>(T entity) where T : class
+        public bool Remove(TEntity entity) 
         {
 
             try
             {
-                mcontexto.Set<T>().Remove(entity);
+                dbSet.Remove(entity);
                 mcontexto.SaveChanges();
                 return true;
             }
@@ -289,7 +289,7 @@ namespace data.repositories
         /// <param name="entity">Entidade a ser atualizada.</param>
         /// <returns>Retorna true se a entidade for atualizado. Caso contrário retorna false.</returns>
 
-        public bool Update<T>(T entity) where T : class
+        public bool Update(TEntity entity) 
         {
             //TODO:metodo de validação das entidades
             try
@@ -309,7 +309,7 @@ namespace data.repositories
                 throw new Exception(ex.Message, ex);
             }
         }
-        public bool Update<T>(T entity, int codigo) where T : class
+        public bool Update(TEntity entity, int codigo) 
         {
             //TODO:metodo de validação das entidades
             try
@@ -318,7 +318,7 @@ namespace data.repositories
 
                 //if (mcontexto.Entry(entity).State == EntityState.Unchanged)
                 // mcontexto.Entry(entity).State = EntityState.Modified;
-                var original = mcontexto.Set<T>().Find(codigo);
+                var original = dbSet.Find(codigo);
                 mcontexto.Entry(original).CurrentValues.SetValues(entity);
                 mcontexto.SaveChanges();
                 return true;
@@ -347,31 +347,6 @@ namespace data.repositories
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-
-
-
-
-
-
-
-
-
-
-        public IList<T> Search<T>(Expression<Func<T, bool>> predicate, Expression<Func<T, bool>> orderExpression, int skip, int take) where T : class
-        {
-            try
-            {
-
-                return mcontexto.Set<T>().Where(predicate).Distinct().OrderBy(orderExpression).Skip(skip).Take(take).ToList<T>();
-            }
-            catch (Exception ex)
-            {
-                if (ex.InnerException != null)
-                    throw new Exception(ex.InnerException.Message, ex);
-                throw new Exception(ex.Message, ex);
-            }
         }
 
         

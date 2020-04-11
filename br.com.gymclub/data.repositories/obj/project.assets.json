@@ -377,7 +377,7 @@
           }
         }
       },
-      "data.Contexts/1.0.0": {
+      "datacontexts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
         "dependencies": {
@@ -388,10 +388,10 @@
           "helpers": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/data.Contexts.dll": {}
+          "bin/placeholder/datacontexts.dll": {}
         },
         "runtime": {
-          "bin/placeholder/data.Contexts.dll": {}
+          "bin/placeholder/datacontexts.dll": {}
         }
       },
       "domain.models/1.0.0": {
@@ -1207,10 +1207,10 @@
         "version.txt"
       ]
     },
-    "data.Contexts/1.0.0": {
+    "datacontexts/1.0.0": {
       "type": "project",
-      "path": "../data.Contexts/data.Contexts.csproj",
-      "msbuildProject": "../data.Contexts/data.Contexts.csproj"
+      "path": "../datacontexts/datacontexts.csproj",
+      "msbuildProject": "../datacontexts/datacontexts.csproj"
     },
     "domain.models/1.0.0": {
       "type": "project",
@@ -1230,7 +1230,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
-      "data.Contexts >= 1.0.0"
+      "datacontexts >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1261,8 +1261,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj": {
-              "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/data.Contexts/data.Contexts.csproj"
+            "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj": {
+              "projectPath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/datacontexts/datacontexts.csproj"
             }
           }
         }
