@@ -1,9 +1,0 @@
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/bin/Debug/netcoreapp3.0/domain.models.deps.json
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/bin/Debug/netcoreapp3.0/domain.models.dll
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/bin/Debug/netcoreapp3.0/domain.models.pdb
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.csproj.CoreCompileInputs.cache
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.AssemblyInfoInputs.cache
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.AssemblyInfo.cs
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.dll
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.pdb
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/domain.models/obj/Debug/netcoreapp3.0/domain.models.csprojAssemblyReference.cache

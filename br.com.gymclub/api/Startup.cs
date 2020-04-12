@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using api.context;
+using api.models;
+using api.repositories;
+using api.repositories.Interfaces;
+using api.services;
+using api.services.Interfaces;
 using AutoMapper;
-using datacontexts;
-using data.repositories;
-using data.repositories.Interfaces;
-using domain.models;
+
 using helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +25,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using services;
-using services.Interfaces;
+
 using settings;
 
 namespace api
@@ -39,11 +42,12 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             var appSettings = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettings);
-
+            var connectionStriing = appSettings.Get<AppSettings>().MySqlConnectionString;
             services.AddDbContext<AppDbContext>
-                (options => options.UseMySql(appSettings.Get<AppSettings>().MySqlConnectionString));
+                (options => options.UseMySql(connectionStriing));
             
             services.AddScoped<IPasswordManager, PasswordManager>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -62,22 +66,21 @@ namespace api
             services.AddScoped<IPaymentService, PaymentService<Payment>>();
             services.AddScoped<IStateService, StateService>();
 
-
+            var key = Encoding.ASCII.GetBytes(appSettings.Get<AppSettings>().JWTSecret);
             services.AddAuthentication(x => {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-                .AddJwtBearer(x => {
+            .AddJwtBearer(x => { 
+                    x.RequireHttpsMetadata = false;
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(appSettings.Get<AppSettings>().JWTSecret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
                         ValidateIssuer = false,
-                        ValidateAudience = false,
-                        RequireExpirationTime = false,
-                        ValidateLifetime = true
+                        ValidateAudience = false
+                        
                     };
                 });
 
@@ -90,6 +93,21 @@ namespace api
                      Version = "v1",
                      Description = "GymClub API "
 
+                 });
+                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                 {
+                     Description = "JWT Authorization header using 'bearer' scheme",
+                     Name = "Authorization",
+                     In = ParameterLocation.Header,
+                     Type = SecuritySchemeType.ApiKey
+                 });
+                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                 {
+                     {new OpenApiSecurityScheme{Reference = new OpenApiReference
+                     {
+                         Id = "Bearer",
+                         Type = ReferenceType.SecurityScheme
+                     }}, new List<string>()}
                  });
                  c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
              }
@@ -125,13 +143,15 @@ namespace api
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+
             app.UseCors(x => x
-               .AllowAnyHeader()
-               .AllowAnyMethod()
-               .AllowAnyOrigin());
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {

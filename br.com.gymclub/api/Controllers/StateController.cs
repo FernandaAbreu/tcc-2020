@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using domain.models;
+using api.models;
+using api.services.Interfaces;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using services.Interfaces;
+
 
 namespace api.Controllers
 {

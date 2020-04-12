@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using api.Extensions;
-using domain.models;
+using api.models;
+using api.services.Interfaces;
+using api.viewmodels;
 using helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-using services.Interfaces;
-using viewmodels;
+
 
 namespace api.Controllers
 {

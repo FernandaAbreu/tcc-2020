@@ -1,62 +1,33 @@
-﻿<Properties StartupConfiguration="{048E91A5-24A0-4F3E-8107-03B18BF493F2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EntityConfiguration/CityConfiguration.cs">
+﻿<Properties StartupConfiguration="{3822F658-984A-488F-A346-581030734460}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.yml">
     <Files>
-      <File FileName="datacontexts/AppDbContext.cs" Line="43" Column="51" />
-      <File FileName="EntityConfiguration/StateConfiguration.cs" Line="8" Column="18" />
-      <File FileName="EntityConfiguration/CityConfiguration.cs" Line="8" Column="18" />
+      <File FileName="README.md" Line="4" Column="3" />
+      <File FileName="api/AppSettings.cs" Line="1" Column="1" />
+      <File FileName="api/appsettings.json" Line="4" Column="38" />
+      <File FileName="api/appsettings.Development.json" Line="4" Column="88" />
+      <File FileName="api/Dockerfile" Line="1" Column="1" />
+      <File FileName="docker-compose.yml" Line="6" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="br.com.gymclub" expanded="True">
+            <Node name="Solution Items" expanded="True" />
             <Node name="api" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
-            <Node name="data.repositories" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-              <Node name="Interfaces" expanded="True" />
+            <Node name="docker-compose" expanded="True">
+              <Node name="docker-compose.yml" selected="True" />
             </Node>
-            <Node name="datacontexts" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="docker-compose" expanded="True" />
-            <Node name="domain.models" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="EntityConfiguration" expanded="True">
-              <Node name="CityConfiguration.cs" selected="True" />
-            </Node>
-            <Node name="services" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-              <Node name="Interfaces" expanded="True" />
-            </Node>
-            <Node name="settings" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="ui" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-            </Node>
+            <Node name="ui" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.ui PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

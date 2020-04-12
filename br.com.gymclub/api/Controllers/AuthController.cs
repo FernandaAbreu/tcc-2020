@@ -2,9 +2,9 @@
 using AutoMapper;
 using helpers;
 using Microsoft.AspNetCore.Mvc;
-using services.Interfaces;
-using viewmodels;
 using api.Extensions;
+using api.services.Interfaces;
+using api.viewmodels;
 
 namespace api.Controllers
 {

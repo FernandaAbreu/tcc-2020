@@ -6,16 +6,12 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1/g' /usr/lib/ssl/openssl.cnf
 WORKDIR /src
 COPY api/api.csproj api/
-COPY viewmodels/viewmodels.csproj viewmodels/
-COPY settings/settings.csproj settings/
-COPY services/services.csproj services/
-COPY domain.models/domain.models.csproj domain.models/
-COPY helpers/helpers.csproj helpers/
-COPY datacontexts/datacontexts.csproj datacontexts/
-COPY EntityConfiguration/EntityConfiguration.csproj EntityConfiguration/
-COPY data.repositories/data.repositories.csproj data.repositories/
 RUN dotnet restore "api/api.csproj"
 COPY . .
 WORKDIR "/src/api"
