@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{BEBB377D-2148-41CE-AD02-BD89A0CCD010}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ui/Controllers/AuthController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ui/viewmodels/VMAuth.cs">
     <Files>
-      <File FileName="ui/Controllers/ClientController.cs" Line="64" Column="10" />
+      <File FileName="ui/Controllers/ClientController.cs" Line="119" Column="19" />
       <File FileName="ui/Controllers/InstructorController.cs" Line="299" Column="65" />
       <File FileName="ui/Views/Instructor/Create.cshtml" Line="77" Column="16" />
       <File FileName="ui/viewmodels/VMInstructor.cs" Line="22" Column="40" />
@@ -22,7 +22,10 @@
       <File FileName="ui/repositories/PaymentRepository.cs" Line="32" Column="1" />
       <File FileName="ui/repositories/ClientRepository.cs" Line="20" Column="38" />
       <File FileName="ui/Views/Inadimplentes/Index.cshtml" Line="32" Column="1" />
-      <File FileName="ui/Controllers/AuthController.cs" Line="1" Column="1" />
+      <File FileName="ui/Controllers/AuthController.cs" Line="40" Column="25" />
+      <File FileName="ui/viewmodels/VMAuth.cs" Line="6" Column="32" />
+      <File FileName="ui/Views/Auth/Index.cshtml" Line="22" Column="27" />
+      <File FileName="ui/viewmodels/VMLoginResponse.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -32,16 +35,16 @@
             <Node name="ui" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="context" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="AuthController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="helpers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="repositories" expanded="True" />
               <Node name="services" expanded="True" />
-              <Node name="viewmodels" expanded="True" />
+              <Node name="viewmodels" expanded="True">
+                <Node name="VMAuth.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Inadimplentes" expanded="True" />
+                <Node name="Auth" expanded="True" />
                 <Node name="Instructor" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
