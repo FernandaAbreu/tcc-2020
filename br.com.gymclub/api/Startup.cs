@@ -112,23 +112,24 @@ namespace api
                  c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
              }
                  );
-                 /*c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                 {
-                     Description = "JWT Authorization header using 'bearer' scheme",
-                     Name = "Authorization",
-                     In = ParameterLocation.Header,
-                     Type = SecuritySchemeType.ApiKey
-                 });
-                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                 {
-                     {new OpenApiSecurityScheme{Reference = new OpenApiReference
-                     {
-                         Id = "Bearer",
-                         Type = ReferenceType.SecurityScheme
-                     }}, new List<string>()}
-                 });*/
-             //});
-            services.AddControllers();
+            /*c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "JWT Authorization header using 'bearer' scheme",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey
+            });
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {new OpenApiSecurityScheme{Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                }}, new List<string>()}
+            });*/
+            //});
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -137,10 +138,17 @@ namespace api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             //app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseRouting();
 
 
@@ -161,6 +169,7 @@ namespace api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }

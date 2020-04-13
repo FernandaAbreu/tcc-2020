@@ -1,0 +1,106 @@
+@model api.viewmodels.VMInstructor
+
+@{
+    Layout = "~/Views/Shared/_Forms.cshtml";
+    ViewData["Title"] = "Criação de Instrutor";
+
+}
+
+
+    <h4 class="title">Criar nova conta de Instrutor</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <partial name="~/Views/Shared/Messages.cshtml" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <div class="form-group  col-md-6 remove-padding-left">
+                        <label asp-for="RG" class="control-label"></label>
+                        <input asp-for="RG" class="form-control" />
+                        <span asp-validation-for="RG" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 remove-padding-right">
+                        <label asp-for="cpf" class="control-label"></label>
+                        <input asp-for="cpf" class="form-control" />
+                        <span asp-validation-for="cpf" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="input-group">
+                    <div class="form-group col-md-8 remove-padding-left">
+                        <label asp-for="Street" class="control-label"></label>
+                        <input asp-for="Street" class="form-control" />
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 remove-padding-right">
+                        <label asp-for="Neighborhood" class="control-label"></label>
+                        <input asp-for="Neighborhood" class="form-control" />
+                        <span asp-validation-for="Neighborhood" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="form-group col-md-6 remove-padding-left">
+                        <label asp-for="idState" class="control-label"></label>
+                        <select asp-for="idState" class="form-control" asp-items="ViewBag.idState">
+                            <option disabled selected>Selecione um  estado</option>
+                        </select>
+                        <span asp-validation-for="idState" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 remove-padding-right">
+                        <label asp-for="idCity" class="control-label"></label>
+                        <select asp-for="idCity" class="form-control" asp-items="ViewBag.idCity">
+                            <option disabled selected>Selecione um Estado para obter a lista de cidades</option>
+                        </select>
+                        <span asp-validation-for="idCity" class="text-danger"></span>
+                    </div>
+
+                </div>
+               
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+       
+        <script>$(function () {
+
+            $("#idState").change(function () {
+                var idEstado = $(this).val();
+                $.getJSON("/api/state/" + idEstado+"/cities", function (data) {
+                    $("#idCity").empty();
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        console.log("estou dentro");
+                        $("<option value='" + data[i].id + "'>" + data[i].name + "</option>")
+                            .appendTo("#idCity");
+                    }
+                });
+            });
+        });</script>
+    }
+

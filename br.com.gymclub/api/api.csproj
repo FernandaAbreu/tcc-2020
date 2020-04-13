@@ -38,8 +38,15 @@
     <Folder Include="services\Interfaces\" />
     <Folder Include="viewmodels\" />
     <Folder Include="viewmodels\CustomValidators\" />
+    <Folder Include="Views\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="appsettings.Development.json" />
+    <Content Remove="Views\Home\Index.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="wwwroot\js\site.js" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
   </ItemGroup>
 </Project>

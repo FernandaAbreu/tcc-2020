@@ -1,25 +1,51 @@
-﻿<Properties StartupConfiguration="{3822F658-984A-488F-A346-581030734460}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.yml">
+﻿<Properties StartupConfiguration="{BEBB377D-2148-41CE-AD02-BD89A0CCD010}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ui/Controllers/AuthController.cs">
     <Files>
-      <File FileName="README.md" Line="4" Column="3" />
-      <File FileName="api/AppSettings.cs" Line="1" Column="1" />
-      <File FileName="api/appsettings.json" Line="4" Column="38" />
-      <File FileName="api/appsettings.Development.json" Line="4" Column="88" />
-      <File FileName="api/Dockerfile" Line="1" Column="1" />
-      <File FileName="docker-compose.yml" Line="6" Column="24" />
+      <File FileName="ui/Controllers/ClientController.cs" Line="64" Column="10" />
+      <File FileName="ui/Controllers/InstructorController.cs" Line="299" Column="65" />
+      <File FileName="ui/Views/Instructor/Create.cshtml" Line="77" Column="16" />
+      <File FileName="ui/viewmodels/VMInstructor.cs" Line="22" Column="40" />
+      <File FileName="ui/viewmodels/VMClient.cs" Line="33" Column="31" />
+      <File FileName="ui/viewmodels/VMCity.cs" Line="1" Column="1" />
+      <File FileName="ui/Models/Instructor.cs" Line="9" Column="35" />
+      <File FileName="ui/Views/Instructor/Delete.cshtml" Line="45" Column="8" />
+      <File FileName="ui/Views/Instructor/Edit.cshtml" Line="20" Column="60" />
+      <File FileName="ui/Views/Client/Create.cshtml" Line="124" Column="21" />
+      <File FileName="ui/Views/Client/Edit.cshtml" Line="137" Column="28" />
+      <File FileName="ui/Views/Instructor/Index.cshtml" Line="47" Column="1" />
+      <File FileName="ui/services/Helper/AutoMapperProfile.cs" Line="18" Column="112" />
+      <File FileName="ui/Models/Client.cs" Line="9" Column="48" />
+      <File FileName="ui/Controllers/InadimplentesController.cs" Line="34" Column="14" />
+      <File FileName="ui/Models/Payment.cs" Line="12" Column="47" />
+      <File FileName="ui/viewmodels/VMSearchClient.cs" Line="11" Column="46" />
+      <File FileName="ui/viewmodels/VMSearchpayment.cs" Line="25" Column="9" />
+      <File FileName="ui/repositories/PaymentRepository.cs" Line="32" Column="1" />
+      <File FileName="ui/repositories/ClientRepository.cs" Line="20" Column="38" />
+      <File FileName="ui/Views/Inadimplentes/Index.cshtml" Line="32" Column="1" />
+      <File FileName="ui/Controllers/AuthController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="br.com.gymclub" expanded="True">
             <Node name="Solution Items" expanded="True" />
-            <Node name="api" expanded="True">
+            <Node name="ui" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="context" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AuthController.cs" selected="True" />
+              </Node>
+              <Node name="helpers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="repositories" expanded="True" />
+              <Node name="services" expanded="True" />
+              <Node name="viewmodels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Inadimplentes" expanded="True" />
+                <Node name="Instructor" expanded="True" />
+              </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
-            <Node name="docker-compose" expanded="True">
-              <Node name="docker-compose.yml" selected="True" />
-            </Node>
-            <Node name="ui" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -28,15 +54,12 @@
   <MonoDevelop.Ide.ItemProperties.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.ui PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="Vários Projetos" Name="Vários Projetos">
-      <Items>
-        <StartupItem ItemId="{E141B893-7770-463C-BCEB-E1A08F59C3E8}" ItemName="ui" ConfigurationId="Default" />
-      </Items>
-    </MultiItemSolutionRunConfiguration>
+    <MultiItemSolutionRunConfiguration Id="Vários Projetos" Name="Vários Projetos" />
   </MultiItemStartupConfigurations>
 </Properties>

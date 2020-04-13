@@ -1,0 +1,9 @@
+﻿@using ui.viewmodels;
+@if (TempData["_mensagem"] != null)
+{
+    VMMessages mensagem = (VMMessages)TempData["_mensagem"];
+    <div id="message" class="@mensagem.Css">
+        <span>@mensagem.Text</span>
+    </div>
+    <script type="text/javascript">hiddenMessage();</script>
+}

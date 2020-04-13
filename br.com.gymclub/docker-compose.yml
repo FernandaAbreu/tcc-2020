@@ -28,14 +28,6 @@ services:
     networks:
       - backend
 
-  ui:
-    build:
-      context: .
-      dockerfile: ui/Dockerfile
-    ports:
-       - "8520:80"
-    networks:
-      - backend
 networks:
   backend:
     driver: bridge

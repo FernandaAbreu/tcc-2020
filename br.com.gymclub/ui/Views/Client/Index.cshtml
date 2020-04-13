@@ -1,0 +1,112 @@
+@model IEnumerable<api.models.Client>
+@using ui.viewmodels;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Clientes";
+}
+
+<h3 class="title title-list">Lista de Clientes</h3>
+
+<div id="busca" class="form-group col-md-12">
+    <section>
+        <form action="@Url.Content("~/Client")" method="post">
+            <div class="row">
+
+
+                <div class="col-sm-10 form-group text-center">
+                    <input type="text" name="searchValue" class="form-control" placeholder="Digite Nome, Rg o CPF do cliente" />
+
+                </div>
+                <div class="col-sm-2 text-center">
+                    <input type="submit" value="Buscar" id="busca" class="btn btn-primary" />
+                </div>
+            </div>
+
+
+
+        </form>
+
+        <form action="@Url.Content("~/Client/Export")" method="post">
+            <div class="row" style="padding-top:20px">
+                <div class="col-sm-3 text-center">
+
+                    <a asp-action="Create" class="btn btn-success btn-md">Novo Cliente</a>
+                    @if (ViewData["searchOld"] != null)
+                    {
+                        <input type="hidden" name="searchOld" value="@ViewData["searchOld"]" />
+                    }
+                    <input type="submit" value="Export" id="busca" class="btn btn-secondary" />
+                </div>
+
+
+            </div>
+
+
+
+        </form>
+
+
+
+
+    </section>
+</div>
+
+@if (TempData["_mensagem"] != null)
+{
+    VMMessages mensagem = (VMMessages)TempData["_mensagem"];
+    <div id="message" class="@mensagem.Css">
+        <span>@mensagem.Text</span>
+    </div>
+    <script type="text/javascript">hiddenMessage();</script>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRegistration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Rg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.planType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdRegistration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Rg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.planType.Name)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.IdRegistration">Editar</a> 
+
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdRegistration">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

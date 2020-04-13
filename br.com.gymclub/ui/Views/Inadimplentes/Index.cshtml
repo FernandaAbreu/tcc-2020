@@ -1,0 +1,115 @@
+@model IEnumerable<api.models.Payment>
+@using ui.viewmodels;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Instrutores";
+}
+
+<h3 class="title title-list">Lista de Inadimplentes</h3>
+
+<div id="busca" class="form-group col-md-12">
+    <section>
+        <form action="@Url.Content("~/Inadimplentes")" method="post">
+            <div class="row">
+
+
+                <div class="col-sm-10 form-group text-center">
+                    <input type="text" name="searchValue" class="form-control" placeholder="Digite Nome, Rg o CPF do cliente" />
+
+                </div>
+                <div class="col-sm-2 text-center">
+                    <input type="submit" value="Buscar" id="busca" class="btn btn-primary" />
+                </div>
+            </div>
+
+
+
+        </form>
+
+        <form action="@Url.Content("~/Inadimplentes/Export")" method="post">
+            <div class="row" style="padding-top:20px">
+                <div class="col-sm-3 text-center">
+
+                   
+                    @if (ViewData["searchOld"] != null)
+                    {
+                        <input type="hidden" name="searchOld" value="@ViewData["searchOld"]" />
+                    }
+                    <input type="submit" value="Export" id="busca" class="btn btn-secondary" />
+                </div>
+
+
+            </div>
+
+
+
+        </form>
+
+
+
+
+
+    </section>
+</div>
+
+@if (TempData["_mensagem"] != null)
+{
+    VMMessages mensagem = (VMMessages)TempData["_mensagem"];
+    <div id="message" class="@mensagem.Css">
+        <span>@mensagem.Text</span>
+    </div>
+    <script type="text/javascript">hiddenMessage();</script>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.client.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.client.User.Rg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.client.User.Cpf)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.planType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Id)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.client.User.Name)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.client.User.Rg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.client.User.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.client.planType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+</table>
+

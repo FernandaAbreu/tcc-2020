@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using api.models;
 using api.services.Interfaces;
-
+using api.viewmodels;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,12 @@ namespace api.Controllers
     {
         private readonly IStateService _stateService;
         private readonly ICityService _cityService;
-        public StateController(IStateService stateService,ICityService cityService)
+        private readonly IMapper _mapper;
+        public StateController(IStateService stateService,ICityService cityService, IMapper mapper)
         {
             _stateService = stateService;
             _cityService = cityService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -38,12 +41,13 @@ namespace api.Controllers
 
         }
         [HttpGet("{id}/cities")]
-        public ActionResult<IEnumerable<City>> GetCityByCountry(int id)
+        public ActionResult<IEnumerable<VMCity>> GetCityByCountry(int id)
         {
             try
             {
-                var cities = _cityService.GetCitiesByState(id);
-                return Ok(cities);
+                List<City> cities = _cityService.GetCitiesByState(id);
+               
+                return Ok(_mapper.Map<List<VMCity>>(cities));
             }
             catch (Exception ex)
             {

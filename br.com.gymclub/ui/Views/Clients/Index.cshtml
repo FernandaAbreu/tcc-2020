@@ -1,0 +1,118 @@
+@model IEnumerable<api.models.Client>
+@using ui.viewmodels;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    @if (TempData["_mensagem"] != null)
+    {
+        VMMessages mensagem = (VMMessages)TempData["_mensagem"];
+        <div id="message" class="@mensagem.Css">
+            <span>@mensagem.Text</span>
+        </div>
+        <script type="text/javascript">hiddenMessage();</script>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Neighborhood)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContractStartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContractEndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.idUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeletedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.state)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.planType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.typePayment)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContractStartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContractEndDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.state.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.planType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.typePayment.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdRegistration">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdRegistration">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdRegistration">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
