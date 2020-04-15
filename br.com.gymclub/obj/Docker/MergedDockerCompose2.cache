@@ -1,0 +1,33 @@
+networks:
+  backend:
+    driver: bridge
+services:
+  db_server:
+    container_name: db_server
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    image: mysql:latest
+    networks:
+      backend: null
+    ports:
+    - published: 3306
+      target: 3306
+    volumes:
+    - /Users/fernandaabreu/tcc-2020/br.com.gymclub:/repo:rw
+    - data-volume:/var/lib/mysql:rw
+    working_dir: /repo
+  ui:
+    build:
+      context: /Users/fernandaabreu/tcc-2020/br.com.gymclub
+      dockerfile: ui/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: ui
+    networks:
+      backend: null
+    ports:
+    - published: 20000
+      target: 80
+version: '3.4'
+volumes:
+  data-volume: {}

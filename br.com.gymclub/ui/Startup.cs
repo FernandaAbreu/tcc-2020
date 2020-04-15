@@ -212,7 +212,6 @@ namespace ui
                 MinimumSameSitePolicy = SameSiteMode.Strict,
             };
             app.UseCookiePolicy(cookiePolicyOptions);
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             
             app.UseRouting();
