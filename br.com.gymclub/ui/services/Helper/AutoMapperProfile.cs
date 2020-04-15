@@ -14,8 +14,8 @@ namespace api.services.Helper
             CreateMap<VMClient, User>();
             CreateMap<VMInstructor, User>();
             CreateMap<User, VMInstructor>();
-            CreateMap<VMInstructor, Instructor>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.id));
-            CreateMap<Instructor, VMInstructor>().ForMember(dest => dest.id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<VMInstructor, Instructor>().ForMember(dest => dest.userId, opt => opt.MapFrom(src => src.idUser));
+            CreateMap<Instructor, VMInstructor>().ForMember(dest => dest.idUser, opt => opt.MapFrom(src => src.userId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.User.Name))
                 .ForMember(dest => dest.cpf, opt => opt.MapFrom(src => src.User.Cpf))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))

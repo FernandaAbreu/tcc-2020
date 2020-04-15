@@ -1,0 +1,32 @@
+﻿@model api.viewmodels.VMLoginRequest
+
+@{
+    Layout = "~/Views/Shared/_Forms.cshtml";
+    ViewData["Title"] = "Sem acesso";
+}
+
+
+<h4 class="title text-center"> GymClub</h4>
+<hr />
+<div class="container col-md-6">
+    <div class="row">
+        <div class="col ">
+           
+                <partial name="~/Views/Shared/Messages.cshtml" />
+                <p class="alert alert-danger"> Você não tem acesso para realizar essa ação</p>
+            
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+

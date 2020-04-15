@@ -28,8 +28,13 @@ namespace api.Controllers
         {
             try
             {
+               
+                 var finalDate = DateTime.Now;
+                
+                 var initDate = DateTime.MinValue;
+                
 
-                return _paymentService.GetPaymentsThatAreNotPaidAndNeeded();
+                return _paymentService.GetPaymentsThatAreNotPaidAndNeeded(initDate, finalDate);
 
 
             }
@@ -49,17 +54,26 @@ namespace api.Controllers
         {
             try
             {
+                if (payload.finalDate == null)
+                {
+                    payload.finalDate = DateTime.Now;
+                }
+                if (payload.initDate == null)
+                {
+                    payload.initDate = DateTime.MinValue;
+                }
+
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState.GetErrorMessages());
                 }
                 if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
                 {
-                    return _paymentService.GetPaymentsThatAreNotPaidAndNeeded();
+                    return _paymentService.GetPaymentsThatAreNotPaidAndNeeded(payload.initDate.Value,payload.finalDate.Value);
                 }
                 else
                 {
-                    return _paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue);
+                    return _paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue, payload.initDate.Value, payload.finalDate.Value);
                 }
 
             }

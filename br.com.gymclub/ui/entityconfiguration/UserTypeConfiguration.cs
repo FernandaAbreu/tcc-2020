@@ -40,11 +40,12 @@ namespace EntityConfiguration
 
             builder
                 .HasData(
-                    new UserType { Id = 1, Name = "Admin" },
+                    new UserType { Id = 1, Name = "Gerente" },
                     new UserType { Id = 2, Name = "Recepcionista" },
                     new UserType { Id = 3, Name = "Instrutor" },
                     new UserType { Id = 4, Name = "Fisioterapeuta" },
-                     new UserType { Id = 5, Name = "Ciente" }
+                     new UserType { Id = 5, Name = "Cliente" }
+                      
                 );
         }
     }

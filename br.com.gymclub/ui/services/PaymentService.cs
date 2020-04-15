@@ -43,14 +43,14 @@ namespace api.services
             return _paymentRepository.GetAll();
         }
 
-        List<models.Payment> IPaymentService.GetPaymentsByNameOrRGOrCPF(string searchValue)
+        List<models.Payment> IPaymentService.GetPaymentsByNameOrRGOrCPF(string searchValue, DateTime init, DateTime final)
         {
-            return _paymentRepository.GetPaymentsByNameOrRGOrCPF(searchValue);
+            return _paymentRepository.GetPaymentsByNameOrRGOrCPF(searchValue,init,final);
         }
 
-        List<models.Payment> IPaymentService.GetPaymentsThatAreNotPaidAndNeeded()
+        List<models.Payment> IPaymentService.GetPaymentsThatAreNotPaidAndNeeded(DateTime init, DateTime final)
         {
-            return _paymentRepository.GetPaymentsThatAreNotPaidAndNeeded();
+            return _paymentRepository.GetPaymentsThatAreNotPaidAndNeeded(init,final);
         }
     }
 }

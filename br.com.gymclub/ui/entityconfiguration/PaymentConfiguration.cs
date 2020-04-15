@@ -94,7 +94,7 @@ namespace EntityConfiguration
                            idTypePayment = 2,
                            idTypePlan = 2,
                            idRegistration = 2,
-                           PaymentDay = new DateTime(new DateTime(2020, 03, 28, 22, 35, 5,
+                           DueDate = new DateTime(new DateTime(2020, 03, 28, 22, 35, 5,
                             new CultureInfo("en-US", false).Calendar).Ticks)
                        }
                   ); 

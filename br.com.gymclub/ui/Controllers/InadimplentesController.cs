@@ -16,7 +16,7 @@ using ui.viewmodels;
 namespace api.Controllers
 {
     
-   
+    [Authorize]
     public class InadimplentesController : Controller
     {
         private readonly IPaymentService _paymentService;
@@ -29,29 +29,40 @@ namespace api.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            
-                
-             return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded());
+            var finalDate = DateTime.Now;
+
+            var initDate = DateTime.MinValue;
+
+            return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded(initDate,finalDate));
               
            
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Recepcionista")]
+
         public ActionResult Index([Bind("searchValue,searchOld,initDateOld,initDate,finalDateOld,finalDate")] VMSearchpayment payload)
         {
+            if (payload.finalDate == null )
+            {
+                payload.finalDate = DateTime.Now;
+            }
+            if (payload.initDate == null)
+            {
+                payload.initDate = DateTime.MinValue;
+            }
             try
             {
+                
                 if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
                 {
-                    return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded());
+                    return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded(payload.initDate.Value, payload.finalDate.Value));
                 }
                 else
                 {
                     ViewData["searchOld"] = payload.searchValue;
                     ViewData["finalDateOld"] = payload.finalDate;
                     ViewData["initDateOld"] = payload.initDateOld;
-                    return View(_paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue));
+                    return View(_paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue,payload.initDate.Value, payload.finalDate.Value));
                 }
 
             }
@@ -72,22 +83,30 @@ namespace api.Controllers
                     Text = "Um erro insperado ocorreu"
                 };
             }
-            return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded());
+            return View(_paymentService.GetPaymentsThatAreNotPaidAndNeeded(payload.initDate.Value, payload.finalDate.Value));
         }
 
         #region Export Excel
 
         public ActionResult Export([Bind("searchValue,searchOld,initDateOld,initDate,finalDateOld,finalDate")] VMSearchpayment payload)
         {
+            if (payload.finalDateOld == null)
+            {
+                payload.finalDateOld = DateTime.Now;
+            }
+            if (payload.initDateOld == null)
+            {
+                payload.initDateOld = DateTime.MinValue;
+            }
 
             List<Payment> list;
-            if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
+            if (string.IsNullOrEmpty(payload.searchOld) || string.IsNullOrWhiteSpace(payload.searchOld))
             {
-                list= _paymentService.GetPaymentsThatAreNotPaidAndNeeded();
+                list= _paymentService.GetPaymentsThatAreNotPaidAndNeeded(payload.initDateOld.Value, payload.finalDateOld.Value);
             }
             else
             {
-                list= _paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue);
+                list= _paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchOld,payload.initDateOld.Value, payload.finalDateOld.Value);
             }
 
             DataTable dt = GetDataTable(list);
@@ -158,55 +177,6 @@ namespace api.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult<List<Payment>> list()
-        {
-            try
-            {
-
-                return _paymentService.GetPaymentsThatAreNotPaidAndNeeded();
-
-
-            }
-            catch (CustomHttpException ex)
-            {
-                return StatusCode(ex.StatusCode, ex.ErrorMessage);
-            }
-            catch (Exception ex)
-            {
-                // TODO: Log ex
-                return StatusCode(500, new { error = "Internal server error" });
-            }
-        }
-
-        [HttpGet]
-        public ActionResult<List<Payment>> list([FromBody] VMSearchpayment payload)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState.GetErrorMessages());
-                }
-                if (string.IsNullOrEmpty(payload.searchValue) || string.IsNullOrWhiteSpace(payload.searchValue))
-                {
-                    return _paymentService.GetPaymentsThatAreNotPaidAndNeeded();
-                }
-                else
-                {
-                    return _paymentService.GetPaymentsByNameOrRGOrCPF(payload.searchValue);
-                }
-
-            }
-            catch (CustomHttpException ex)
-            {
-                return StatusCode(ex.StatusCode, ex.ErrorMessage);
-            }
-            catch (Exception ex)
-            {
-                // TODO: Log ex
-                return StatusCode(500, new { error = "Internal server error" });
-            }
-        }
+       
     }
 }

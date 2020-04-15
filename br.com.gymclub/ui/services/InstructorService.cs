@@ -57,12 +57,12 @@ namespace api.services
             {
                 throw new CustomHttpException(422, " Esse “E-mail” já existe na base de dados.");
             }
-            var existingUserWithCpf = _userRepository.FindByCPF(entity.Email);
-            if (existingUser != null)
+            var existingUserWithCpf = _userRepository.FindByCPF(entity.cpf);
+            if (existingUserWithCpf != null)
             {
                 throw new CustomHttpException(422, " Esse “CPF” já existe na base de dados.");
             }
-            var existingUserWithRG = _userRepository.FindByRg(entity.Email);
+            var existingUserWithRG = _userRepository.FindByRg(entity.RG);
             if (existingUserWithRG != null)
             {
                 throw new CustomHttpException(422, " Esse “RG” já existe na base de dados.");
@@ -96,12 +96,12 @@ namespace api.services
             {
                 throw new CustomHttpException(422, " Esse “E-mail” já existe na base de dados.");
             }
-            var existingUserWithCpf = _userRepository.FindByCPF(entity.Email);
+            var existingUserWithCpf = _userRepository.FindByCPF(entity.cpf);
             if (existingUserWithCpf != null && existingUserWithCpf.Id != entity.idUser)
             {
                 throw new CustomHttpException(422, " Esse “CPF” já existe na base de dados.");
             }
-            var existingUserWithRG = _userRepository.FindByRg(entity.Email);
+            var existingUserWithRG = _userRepository.FindByRg(entity.RG);
             if (existingUserWithRG != null && existingUserWithRG.Id != entity.idUser)
             {
                 throw new CustomHttpException(422, " Esse “RG” já existe na base de dados.");

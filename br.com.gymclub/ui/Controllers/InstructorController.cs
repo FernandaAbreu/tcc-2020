@@ -18,7 +18,7 @@ using ui.viewmodels;
 
 namespace api.Controllers
 {
-   
+   [Authorize]
     public class InstructorController : Controller
     {
        
@@ -42,6 +42,7 @@ namespace api.Controllers
         }
 
         // GET: Instructor/Create
+        [Authorize(Roles = "Recepcionista")]
         public IActionResult Create()
         {
 
@@ -59,7 +60,7 @@ namespace api.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Create([Bind("Name,Email,Password,RG,cpf,Street,Neighborhood,idCity,idState,idUser")] VMInstructor payload)
         {
             try
@@ -71,7 +72,8 @@ namespace api.Controllers
                         Css = "alert alert-danger",
                         Text = "Não foi possivel realizar seu cadastro,tente novamente!"
                     };
-                   
+                    ViewData["idCity"] = new SelectList(_cityService.GetCitiesByState(payload.idState), "Id", "Name", payload.idCity);
+
                     ViewData["idState"] = new SelectList(_stateService.GetAll(), "Id", "Name");
                     return View(payload);
                 }
@@ -90,7 +92,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = ex.Message
+                    Text = ex.ErrorMessage
                 };
 
             }
@@ -105,13 +107,15 @@ namespace api.Controllers
                 };
 
             }
-           
+            ViewData["idCity"] = new SelectList(_cityService.GetCitiesByState(payload.idState), "Id", "Name", payload.idCity);
+
             ViewData["idState"] = new SelectList(_stateService.GetAll(), "Id", "Name");
             return View(payload);
         }
 
 
         // GET: Clients/Edit/5
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -140,7 +144,7 @@ namespace api.Controllers
             return View(_mapper.Map<VMInstructor>(entity));
         }
         [HttpPost]
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, [Bind("id,Name,Email,Password,RG,cpf,Street,Neighborhood,idCity,idState,idUser,CreatedAt,UpdatedAt,DeletedAt")] VMInstructor payload)
         {
@@ -192,7 +196,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = ex.Message
+                    Text = ex.ErrorMessage
                 };
 
             }
@@ -212,6 +216,7 @@ namespace api.Controllers
             return View(payload);
         }
         // GET: Clients/Delete/5
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -225,10 +230,10 @@ namespace api.Controllers
                 return NotFound();
             }
 
-            return View(_mapper.Map<VMClient>(client));
+            return View(_mapper.Map<VMInstructor>(client));
         }
 
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -245,7 +250,7 @@ namespace api.Controllers
                     var mMessages = new VMMessages()
                     {
                         Css = "alert alert-success",
-                        Text = "Cliente removido com sucesso!"
+                        Text = "Removido com sucesso!"
                     };
                     TempData["_mensagem"] = JsonConvert.SerializeObject(mMessages);
                 }
@@ -281,7 +286,7 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Index([Bind("searchValue,searchOld")] VMSearchClient payload)
         {
             try
@@ -306,7 +311,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = "Um erro insperado ocorreu"
+                    Text = ex.ErrorMessage
                 };
             }
             catch (Exception ex)
@@ -322,7 +327,7 @@ namespace api.Controllers
         }
 
         #region Export Excel
-
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Export([Bind("searchValue,searchOld")] VMSearchClient payload)
         {
 

@@ -1,0 +1,33 @@
+﻿@model api.viewmodels.VMSearchpayment
+@{
+    <form action="@Url.Content("~/Inadimplentes")" method="post">
+        <div class="row">
+
+            <div class="input-group">
+                <div class="col-sm-3 form-group remove-padding-left">
+                    <label asp-for="initDate" class="control-label"></label>
+                    <input asp-for="initDate" class="form-control" />
+                    <span asp-validation-for="initDate" class="text-danger"></span>
+                </div>
+                <div class="col-sm-3 form-group remove-padding-right">
+                    <label asp-for="finalDate" class="control-label"></label>
+                    <input asp-for="finalDate" class="form-control" />
+                    <span asp-validation-for="finalDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-sm-4 form-group text-center">
+                    <label  class="control-label"></label>
+                    <input type="text" name="searchValue" class="form-control" placeholder="Digite Nome, Rg o CPF do cliente" style="margin-top:8px" />
+
+                </div>
+                <div class="col-sm-2 text-center">
+                    <label class="control-label"></label>
+                    <input type="submit" value="Buscar" id="busca" class="btn btn-primary" style="margin-top:33px" />
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+}

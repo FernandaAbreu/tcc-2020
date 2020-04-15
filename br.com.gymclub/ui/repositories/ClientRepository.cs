@@ -22,7 +22,7 @@ namespace api.repositories
                 .Include(c => c.planType)
                 .Include(c => c.state)
                 .Include(c => c.typePayment)
-                 .Where(u => u.IdRegistration == createdInstructor)
+                 .Where(u => u.IdRegistration == createdInstructor && u.DeletedAt.HasValue.Equals(false))
                  .SingleOrDefault();
         }
 
@@ -43,9 +43,9 @@ namespace api.repositories
                 .Include(c => c.planType)
                 .Include(c => c.state)
                 .Include(c => c.typePayment)
-                .Where(c => c.User.Name.Contains(searchValue)
+                .Where(c => (c.User.Name.ToUpper().Contains(searchValue.ToUpper())
                 || c.User.Rg.Contains(searchValue)
-                || c.User.Cpf.Contains(searchValue)).ToList();
+                || c.User.Cpf.Contains(searchValue)) && c.DeletedAt.HasValue.Equals(false)).ToList();
 
         }
 

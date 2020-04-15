@@ -18,7 +18,7 @@ namespace api.repositories
         {
             return mcontexto.User
                  .Include(p => p.UserType)
-                 .Where(u => u.Cpf == cpf)
+                 .Where(u => u.Cpf == cpf && u.DeletedAt.HasValue.Equals(false))
                  .SingleOrDefault();
         }
 
@@ -26,7 +26,7 @@ namespace api.repositories
         {
             return mcontexto.User
                  .Include(p => p.UserType)
-                 .Where(u => u.Email == email)
+                 .Where(u => u.Email.ToUpper() == email.ToUpper() && u.DeletedAt.HasValue.Equals(false))
                  .SingleOrDefault();
         }
 
@@ -34,7 +34,7 @@ namespace api.repositories
         {
             return mcontexto.User
                  .Include(p => p.UserType)
-                 .Where(u => u.Id == id)
+                 .Where(u => u.Id == id && u.DeletedAt.HasValue.Equals(false))
                  .SingleOrDefault();
         }
 
@@ -42,7 +42,7 @@ namespace api.repositories
         {
             return mcontexto.User
                   .Include(p => p.UserType)
-                  .Where(u => u.Rg == rg)
+                  .Where(u => u.Rg == rg && u.DeletedAt.HasValue.Equals(false))
                   .SingleOrDefault();
         }
 

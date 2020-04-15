@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qm3ZQttXfWqf16EkCW0tNICm+Ixaj26ImfQBU77XZBFbcv+g91BtjSmcyCimIOtYTSLiRyVyixbvrO24rv7d8Q==",
+  "dgSpecHash": "IQj7lfgrbxBEc8zFqfaGQMLoEf+ocWUETkVKudukAD7Ghg7ryFFCqqn+GM+PLVo6cOMS8PEF+3BO30X5Yl+ffA==",
   "success": true,
   "projectFilePath": "/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/ui.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/fernandaabreu/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/7.0.0/automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
+    "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.3/microsoft.aspnetcore.authentication.jwtbearer.3.1.3.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
@@ -116,6 +117,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "/Users/fernandaabreu/.nuget/packages/spreadsheetgear/8.3.32/spreadsheetgear.8.3.32.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/sqlitepclraw.core/2.0.2/sqlitepclraw.core.2.0.2.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.2/sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
@@ -143,6 +145,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.composition.typedparts/1.0.31/system.composition.typedparts.1.0.31.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/system.configuration.configurationmanager/4.5.0/system.configuration.configurationmanager.4.5.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.console/4.3.0/system.console.4.3.0.nupkg.sha512",
+    "/Users/fernandaabreu/.nuget/packages/system.data.common/4.3.0/system.data.common.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/system.diagnostics.diagnosticsource/4.7.0/system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg.sha512",
@@ -163,6 +166,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.net.nameresolution/4.3.0/system.net.nameresolution.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.net.primitives/4.3.0/system.net.primitives.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.net.sockets/4.3.0/system.net.sockets.4.3.0.nupkg.sha512",
+    "/Users/fernandaabreu/.nuget/packages/system.numerics.vectors/4.3.0/system.numerics.vectors.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.objectmodel/4.3.0/system.objectmodel.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.private.datacontractserialization/4.3.0/system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
@@ -208,11 +212,13 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
     "/Users/fernandaabreu/.nuget/packages/system.threading.tasks.extensions/4.5.3/system.threading.tasks.extensions.4.5.3.nupkg.sha512",
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.threading.tasks.parallel/4.3.0/system.threading.tasks.parallel.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.xml.xpath/4.3.0/system.xml.xpath.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -176,11 +176,6 @@
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/e_sqlite3.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/e_sqlite3.dll
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/e_sqlite3.dll
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Clients/Create.cshtml.g.cs
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Clients/Delete.cshtml.g.cs
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Clients/Details.cshtml.g.cs
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Clients/Edit.cshtml.g.cs
-/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Clients/Index.cshtml.g.cs
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Pages/_ValidationScriptsPartial.cshtml.g.cs
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Client/Create.cshtml.g.cs
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Client/Delete.cshtml.g.cs
@@ -196,3 +191,5 @@
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Instructor/Index.cshtml.g.cs
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Inadimplentes/Index.cshtml.g.cs
 /Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Auth/Index.cshtml.g.cs
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Auth/withoutaccess.cshtml.g.cs
+/Users/fernandaabreu/tcc-2020/br.com.gymclub/ui/obj/Debug/netcoreapp3.1/Razor/Views/Inadimplentes/InadimplentesSearchForm.cshtml.g.cs

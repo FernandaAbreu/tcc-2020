@@ -11,9 +11,13 @@ using api.services;
 using api.services.Interfaces;
 using AutoMapper;
 using helpers;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -66,7 +70,7 @@ namespace ui
             services.AddScoped<IPaymentService, PaymentService<Payment>>();
             services.AddScoped<IStateService, StateService>();
 
-            var key = Encoding.ASCII.GetBytes(appSettings.Get<AppSettings>().JWTSecret);
+            /*var key = Encoding.ASCII.GetBytes(appSettings.Get<AppSettings>().JWTSecret);
             services.AddAuthentication(x => {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -81,10 +85,24 @@ namespace ui
                     ValidateIssuer = false,
                     ValidateAudience = false
 
-                };
+                };*/
+            //    })
+            // authentication
+          
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(options => {
+                 
+                options.LoginPath = "/auth";
+                    
+                 
             });
+            services.AddDistributedMemoryCache();
+        
 
-            services.AddAutoMapper(typeof(Startup));
+        services.AddAutoMapper(typeof(Startup));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -94,21 +112,7 @@ namespace ui
                     Description = "GymClub API "
 
                 });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "JWT Authorization header using 'bearer' scheme",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                 {
-                     {new OpenApiSecurityScheme{Reference = new OpenApiReference
-                     {
-                         Id = "Bearer",
-                         Type = ReferenceType.SecurityScheme
-                     }}, new List<string>()}
-                 });
+                
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             }
                 );
@@ -118,6 +122,7 @@ namespace ui
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -128,15 +133,94 @@ namespace ui
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.Use(async (context, next) =>
+            {
+
+                await next();
+                if (context.Response.StatusCode == 403)
+                {
+                   
+                    var newPath = new PathString("/Auth/withoutaccess");
+                    var originalPath = context.Request.Path;
+                    var originalQueryString = context.Request.QueryString;
+                    context.Features.Set<IStatusCodeReExecuteFeature>(new StatusCodeReExecuteFeature()
+                    {
+                        OriginalPathBase = context.Request.PathBase.Value,
+                        OriginalPath = originalPath.Value,
+                        OriginalQueryString = originalQueryString.HasValue ? originalQueryString.Value : null,
+                    });
+
+                    // An endpoint may have already been set. Since we're going to re-invoke the middleware pipeline we need to reset
+                    // the endpoint and route values to ensure things are re-calculated.
+                    context.SetEndpoint(endpoint: null);
+                    var routeValuesFeature = context.Features.Get<IRouteValuesFeature>();
+                    routeValuesFeature?.RouteValues?.Clear();
+
+                    context.Request.Path = newPath;
+                    try
+                    {
+                        await next();
+                    }
+                    finally
+                    {
+                        context.Request.QueryString = originalQueryString;
+                        context.Request.Path = originalPath;
+                        context.Features.Set<IStatusCodeReExecuteFeature>(null);
+                    }
+
+                    // which policy failed? need to inform consumer which requirement was not met
+                    //await next();
+                }
+                if (context.Response.StatusCode == 401)
+                {
+                   
+                    var newPath = new PathString("/Auth");
+                    var originalPath = context.Request.Path;
+                    var originalQueryString = context.Request.QueryString;
+                    context.Features.Set<IStatusCodeReExecuteFeature>(new StatusCodeReExecuteFeature()
+                    {
+                        OriginalPathBase = context.Request.PathBase.Value,
+                        OriginalPath = originalPath.Value,
+                        OriginalQueryString = originalQueryString.HasValue ? originalQueryString.Value : null,
+                    });
+
+                    // An endpoint may have already been set. Since we're going to re-invoke the middleware pipeline we need to reset
+                    // the endpoint and route values to ensure things are re-calculated.
+                    context.SetEndpoint(endpoint: null);
+                    var routeValuesFeature = context.Features.Get<IRouteValuesFeature>();
+                    routeValuesFeature?.RouteValues?.Clear();
+
+                    context.Request.Path = newPath;
+                    try
+                    {
+                        await next();
+                    }
+                    finally
+                    {
+                        context.Request.QueryString = originalQueryString;
+                        context.Request.Path = originalPath;
+                        context.Features.Set<IStatusCodeReExecuteFeature>(null);
+                    }
+
+                    // which policy failed? need to inform consumer which requirement was not met
+                    //await next();
+                }
+
+            });
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+            };
+            app.UseCookiePolicy(cookiePolicyOptions);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            
             app.UseRouting();
             app.UseCors(x => x
               .AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader());
-
+            
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSwagger();
@@ -144,6 +228,7 @@ namespace ui
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "GymClub API");
 
             });
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -151,6 +236,7 @@ namespace ui
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 
             });
+           
         }
     }
 }

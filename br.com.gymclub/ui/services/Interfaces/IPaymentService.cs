@@ -9,7 +9,7 @@ namespace api.services.Interfaces
 
         public bool Update(Payment entity);
         IEnumerable<Payment> GetAll();
-        List<Payment> GetPaymentsThatAreNotPaidAndNeeded();
-        List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue);
+        List<Payment> GetPaymentsThatAreNotPaidAndNeeded(DateTime init, DateTime final);
+        List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue, DateTime init, DateTime final);
     }
 }

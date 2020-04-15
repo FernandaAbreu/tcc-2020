@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{048E91A5-24A0-4F3E-8107-03B18BF493F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{3822F658-984A-488F-A346-581030734460}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A3228341-8821-4879-9DEB-2EB781B747D4}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
@@ -22,10 +20,6 @@ Global
 		{048E91A5-24A0-4F3E-8107-03B18BF493F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048E91A5-24A0-4F3E-8107-03B18BF493F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048E91A5-24A0-4F3E-8107-03B18BF493F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3822F658-984A-488F-A346-581030734460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3822F658-984A-488F-A346-581030734460}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3822F658-984A-488F-A346-581030734460}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3822F658-984A-488F-A346-581030734460}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BEBB377D-2148-41CE-AD02-BD89A0CCD010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEBB377D-2148-41CE-AD02-BD89A0CCD010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEBB377D-2148-41CE-AD02-BD89A0CCD010}.Release|Any CPU.ActiveCfg = Release|Any CPU

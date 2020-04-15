@@ -19,7 +19,7 @@ using ui.viewmodels;
 
 namespace api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ClientController : Controller
     {
         private readonly IClientService _clientService;
@@ -45,6 +45,7 @@ namespace api.Controllers
         }
 
         // GET: Client/Create
+        [Authorize(Roles = "Recepcionista")]
         public IActionResult Create()
         {
             //ViewData["idCity"] = new SelectList(_context.City, "Id", "Name");
@@ -54,6 +55,7 @@ namespace api.Controllers
             return View();
         }
         // GET: Clients
+        [Authorize(Roles = "Recepcionista")]
         public IActionResult Index()
         {
             if (TempData["_mensagem"] != null)
@@ -64,6 +66,7 @@ namespace api.Controllers
         }
 
         // GET: Clients/Details/5
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -82,7 +85,7 @@ namespace api.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Create([Bind("Name,Email,Password,RG,cpf,Street,Neighborhood,idCity,idState,ContractStartDate,idPlanType,idTypePayment,idUser")] VMClient payload)
         {
             try
@@ -95,6 +98,8 @@ namespace api.Controllers
                         Text = "Não foi possivel realizar seu cadastro,tente novamente!"
                     };
                     //return BadRequest(ModelState.GetErrorMessages());
+                    ViewData["idCity"] = new SelectList(_cityService.GetCitiesByState(payload.idState), "Id", "Name", payload.idCity);
+
                     ViewData["idPlanType"] = new SelectList(_planTypeService.GetAll(), "Id", "Name");
                     ViewData["idState"] = new SelectList(_stateService.GetAll(), "Id", "Name");
                     ViewData["idTypePayment"] = new SelectList(_typePaymentService.GetAll(), "Id", "Name");
@@ -115,7 +120,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = ex.Message
+                    Text = ex.ErrorMessage
                 };
                 
             }
@@ -130,6 +135,8 @@ namespace api.Controllers
                 };
                
             }
+            ViewData["idCity"] = new SelectList(_cityService.GetCitiesByState(payload.idState), "Id", "Name", payload.idCity);
+
             ViewData["idPlanType"] = new SelectList(_planTypeService.GetAll(), "Id", "Name");
             ViewData["idState"] = new SelectList(_stateService.GetAll(), "Id", "Name");
             ViewData["idTypePayment"] = new SelectList(_typePaymentService.GetAll(), "Id", "Name");
@@ -137,6 +144,7 @@ namespace api.Controllers
         }
 
         // GET: Clients/Edit/5
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -168,7 +176,7 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, [Bind("IdRegistration,Name,Email,Password,RG,cpf,Street,Neighborhood,idCity,idState,ContractStartDate,ContractEndDate,idPlanType,idTypePayment,idUser,CreatedAt,UpdatedAt,DeletedAt")] VMClient payload)
         {
@@ -220,7 +228,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = ex.Message
+                    Text = ex.ErrorMessage
                 };
                 
             }
@@ -243,6 +251,7 @@ namespace api.Controllers
         }
 
         // GET: Clients/Delete/5
+        [Authorize(Roles = "Recepcionista")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -259,7 +268,7 @@ namespace api.Controllers
             return View(_mapper.Map<VMClient>(client));
         }
       
-        //[Authorize(Roles = "Recepcionista")]
+        [Authorize(Roles = "Recepcionista")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public  ActionResult DeleteConfirmed(int id)
@@ -337,7 +346,7 @@ namespace api.Controllers
                 TempData["_mensagem"] = new VMMessages()
                 {
                     Css = "alert alert-danger",
-                    Text = "Um erro insperado ocorreu"
+                    Text = ex.ErrorMessage
                 };
             }
             catch (Exception ex)
@@ -353,7 +362,7 @@ namespace api.Controllers
         }
 
         #region Export Excel
-       
+       [Authorize(Roles = "Recepcionista")]
         public ActionResult Export([Bind("searchValue,searchOld")] VMSearchClient payload)
         {
 

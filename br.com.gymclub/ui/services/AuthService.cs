@@ -5,6 +5,9 @@ using System.Text;
 using api.models;
 using api.services.Interfaces;
 using helpers;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -26,12 +29,12 @@ namespace api.services
             _appSettings = appSettings.Value;
         }
 
-        public User CreateAccessToken(string email, string password)
-        {
+        public User CreateAccessToken(HttpContext httpContext ,string email, string password)
+       {
             var user = _userService.FindByEmail(email);
             if (user == null || !_passwordManager.PasswordMatches(password, user.Password))
             {
-                throw new CustomHttpException(422, "Invalid credentials");
+                throw new CustomHttpException(422, "Login inválido");
             }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.JWTSecret);
@@ -44,10 +47,14 @@ namespace api.services
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+               
             };
+            
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.Token = tokenHandler.WriteToken(token);
+
             return user;
+            
         }
     }
 

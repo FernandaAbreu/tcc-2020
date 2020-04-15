@@ -20,22 +20,29 @@ namespace api.repositories
 
         }
 
-        public List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue)
+        public List<Payment> GetPaymentsByNameOrRGOrCPF(string searchValue, DateTime init, DateTime final)
         {
             return mcontexto.Payment
                  .Include(c => c.planType)
                  .Include(c => c.client)
                      .ThenInclude(c=>c.User)
-                .Where(c => (c.client.User.Name.Contains(searchValue) ||  c.client.User.Rg.Contains(searchValue) || c.client.User.Cpf.Contains(searchValue)) && c.DueDate < DateTime.Now && c.PaymentDay ==null).ToList();
+                .Where(c => (c.client.User.Name.ToUpper().Contains(searchValue.ToUpper()) ||
+                c.client.User.Rg.Contains(searchValue) ||
+                c.client.User.Cpf.Contains(searchValue))
+                && c.DueDate < DateTime.Now && c.PaymentDay ==null
+                && c.DueDate >=init && c.DueDate <= final
+                && c.DeletedAt.HasValue.Equals(false)).ToList();
 
         }
 
-        public List<Payment> GetPaymentsThatAreNotPaidAndNeeded()
+        public List<Payment> GetPaymentsThatAreNotPaidAndNeeded(DateTime init, DateTime final)
         {
             return mcontexto.Payment
                  .Include(c => c.planType)
                  .Include(c => c.client)
-                 .ThenInclude(c => c.User).Where(c => c.DueDate<DateTime.Now && c.PaymentDay==null).ToList();
+                 .ThenInclude(c => c.User).Where(c => c.DueDate<DateTime.Now
+                  && c.DueDate >= init && c.DueDate <= final
+                 && c.PaymentDay==null && c.DeletedAt.HasValue.Equals(false)).ToList();
 
         }
 

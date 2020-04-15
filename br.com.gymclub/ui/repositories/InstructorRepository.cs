@@ -29,7 +29,7 @@ namespace api.repositories
                 .Include(c => c.city)
                 .Include(c => c.User)
                 .Include(c => c.state)
-                 .Where(u => u.Id == id)
+                 .Where(u => u.Id == id && u.DeletedAt.HasValue.Equals(false))
                  .SingleOrDefault();
         }
         public List<Instructor> GetInstructorByNameOrRGOrCPF(string searchValue)
@@ -38,9 +38,9 @@ namespace api.repositories
                 .Include(c => c.city)
                 .Include(c => c.User)
                 .Include(c => c.state)
-                .Where(c => c.User.Name.Contains(searchValue)
+                .Where(c => (c.User.Name.ToUpper().Contains(searchValue.ToUpper())
                 || c.User.Rg.Contains(searchValue)
-                || c.User.Cpf.Contains(searchValue)).ToList();
+                || c.User.Cpf.Contains(searchValue)) && c.DeletedAt.HasValue.Equals(false)).ToList();
 
         }
 

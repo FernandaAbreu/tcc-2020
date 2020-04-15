@@ -28,6 +28,12 @@ services:
     networks:
       - backend
 
+  ui:
+    image: ${DOCKER_REGISTRY-}ui
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+
 networks:
   backend:
     driver: bridge
@@ -36,4 +42,5 @@ volumes:
 
 
   
+
 

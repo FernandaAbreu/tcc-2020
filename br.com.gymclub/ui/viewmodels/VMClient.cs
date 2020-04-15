@@ -20,7 +20,7 @@ namespace api.viewmodels
         [MaxLength(255)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Nome obrigatório"), MinLength(3), MaxLength(255)]
+        [Required(ErrorMessage = "Senha é obrigatória"), MinLength(3), MaxLength(255)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
